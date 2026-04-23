@@ -1,18 +1,18 @@
-﻿#!/usr/bin/env bun
+#!/usr/bin/env bun
 // fleet-scan.ts - My Jimmy fleet status via gh CLI
 // Usage: bun fleet-scan.ts
 //
-// Part 1: Jimmy births from Jimmy-v2 issues (single API call)
+// Part 1: Jimmy births from -Jimmy-Blackwood issues (single API call)
 // Part 2: Open issues across orgs
 // Part 3: Recently pushed Jimmy repos
 
 import { $ } from "bun";
 
-const Jimmy_REPO = "Jacobgg994/Jimmy-Jimmy";
+const Jimmy_REPO = "Jacobgg994/-Jimmy-Blackwood";
 const ORGS = ["Jacobgg994"];
-const BIRTH_PATTERN = /awaken|born|birth|enter.*chat|hello|à¸ªà¸§à¸±à¸ªà¸”à¸µ|arrived/i;
+const BIRTH_PATTERN = /awaken|born|birth|enter.*chat|hello|สวัสดี|arrived/i;
 
-// --- Part 1: Jimmy Births from Jimmy-v2 ---
+// --- Part 1: Jimmy Births from -Jimmy-Blackwood ---
 type Birth = { number: number; title: string; date: string; author: string };
 
 const birthIssuesRaw = await $`gh issue list --repo ${Jimmy_REPO} --state all --limit 300 --json number,title,createdAt,author --jq '.[] | "\(.number)|\(.title)|\(.createdAt | split("T")[0])|\(.author.login)"'`.text();
@@ -94,12 +94,12 @@ recentRepos.sort((a, b) => a.daysAgo - b.daysAgo);
 console.log("# My Jimmy Fleet\n");
 
 // Births summary
-console.log(`## Jimmy Family â€” ${allBirths.length} births, ${uniqueAuthors.size} unique humans\n`);
+console.log(`## Jimmy Family — ${allBirths.length} births, ${uniqueAuthors.size} unique humans\n`);
 console.log("### Growth by Month\n");
 console.log("| Month | Births |");
 console.log("|-------|--------|");
 for (const [month, count] of [...byMonth.entries()].sort()) {
-  const bar = "â–ˆ".repeat(Math.ceil(count / 2));
+  const bar = "█".repeat(Math.ceil(count / 2));
   console.log(`| ${month} | ${bar} ${count} |`);
 }
 
@@ -114,7 +114,7 @@ if (thisWeek.length) {
       .replace(/\[Birth\]\s*/i, "")
       .replace(/\bJimmy\b/gi, "")
       .replace(/\b(Awakens?|Re-Awakens?|born|Birth|arrived|enter.*chat|has entered)\b/gi, "")
-      .replace(/[â€”â€“\-:].*/g, "") // strip subtitle after dash
+      .replace(/[—–\-:].*/g, "") // strip subtitle after dash
       .trim()
       .slice(0, 25);
     if (!name) name = b.title.slice(0, 25);
@@ -154,5 +154,6 @@ if (allIssues.length) {
 if (!allBirths.length && !allIssues.length && !recentRepos.length) {
   console.log("No data found.");
 }
+
 
 

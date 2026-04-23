@@ -1,8 +1,8 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.0.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: project
-description: Clone à¹à¸¥à¸°à¸•à¸´à¸”à¸•à¸²à¸¡ external repos à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¹à¸Šà¸£à¹Œ GitHub URL à¸«à¸£à¸·à¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² search repos, find repo, where is [project]
+description: Clone และติดตาม external repos ใช้เมื่อแชร์ GitHub URL หรือพูดว่า search repos, find repo, where is [project]
 ---
 
 # project-manager
@@ -11,7 +11,7 @@ Track and manage external repos: Learn (study) | Incubate (develop)
 
 ## Golden Rule
 
-**ghq owns the clone â†’ Jimmy/ owns the symlink**
+**ghq owns the clone → Jimmy/ owns the symlink**
 
 Never copy. Always symlink. One source of truth.
 
@@ -39,7 +39,7 @@ mkdir -p Jimmy/learn/owner
 ln -sf "$GHQ_ROOT/github.com/owner/repo" Jimmy/learn/owner/repo
 ```
 
-**Output**: "âœ“ Linked [repo] to Jimmy/learn/owner/repo"
+**Output**: "✓ Linked [repo] to Jimmy/learn/owner/repo"
 
 ### incubate [url|slug] [--offload|--contribute|--flash]
 
@@ -53,16 +53,16 @@ mkdir -p Jimmy/incubate/owner
 ln -sf "$GHQ_ROOT/github.com/owner/repo" Jimmy/incubate/owner/repo
 ```
 
-**Output**: "âœ“ Linked [repo] to Jimmy/incubate/owner/repo"
+**Output**: "✓ Linked [repo] to Jimmy/incubate/owner/repo"
 
 #### Workflow Flags
 
 | Flag | Scope | Duration | Cleanup |
 |------|-------|----------|---------|
 | (none) | Long-term dev | Weeks/months | Manual |
-| `--offload` | Manual trigger | â€” | Remove symlink (keep ghq) |
+| `--offload` | Manual trigger | — | Remove symlink (keep ghq) |
 | `--contribute` | Multi-feature | Days/weeks | Offload when all done (keep ghq for PR feedback) |
-| `--flash` | Single fix | Minutes | Issue â†’ PR â†’ offload â†’ purge (one shot) |
+| `--flash` | Single fix | Minutes | Issue → PR → offload → purge (one shot) |
 
 #### --offload
 
@@ -97,22 +97,22 @@ Complete contribution cycle with full cleanup:
 
 ```
 /project incubate URL --flash
-    â†“
-1. gh issue create â†’ #N (document intent)
-    â†“
-2. ghq get â†’ symlink to Jimmy/incubate/
-    â†“
+    ↓
+1. gh issue create → #N (document intent)
+    ↓
+2. ghq get → symlink to Jimmy/incubate/
+    ↓
 3. git checkout -b issue-N-description
-    â†“
+    ↓
 4. Make changes, commit
-    â†“
-5. git push â†’ gh pr create --body "Closes #N"
-    â†“
+    ↓
+5. git push → gh pr create --body "Closes #N"
+    ↓
 6. cd back to main repo
-    â†“
+    ↓
 7. Auto-offload + purge ghq clone
-    â†“
-"âœ“ Issue #N â†’ PR #M â†’ Offloaded & Purged"
+    ↓
+"✓ Issue #N → PR #M → Offloaded & Purged"
 ```
 
 **Use case**: Quick external contributions without leaving traces.
@@ -136,19 +136,19 @@ find Jimmy/learn Jimmy/incubate -type l 2>/dev/null | grep -i "query"
 Show all tracked projects:
 
 ```bash
-echo "ðŸ“š Learn"
+echo "📚 Learn"
 find Jimmy/learn -type l 2>/dev/null | while read link; do
   target=$(readlink "$link")
-  echo "  ${link#Jimmy/learn/} â†’ $target"
+  echo "  ${link#Jimmy/learn/} → $target"
 done
 
-echo "ðŸŒ± Incubate"
+echo "🌱 Incubate"
 find Jimmy/incubate -type l 2>/dev/null | while read link; do
   target=$(readlink "$link")
-  echo "  ${link#Jimmy/incubate/} â†’ $target"
+  echo "  ${link#Jimmy/incubate/} → $target"
 done
 
-echo "ðŸ  External (ghq)"
+echo "🏠 External (ghq)"
 ghq list | grep -v "Jacobgg994/Nat-s-Agents" | head -10
 ```
 
@@ -156,11 +156,11 @@ ghq list | grep -v "Jacobgg994/Nat-s-Agents" | head -10
 
 ```
 Jimmy/
-â”œâ”€â”€ learn/owner/repo     â†’ ~/Code/github.com/owner/repo  (symlink)
-â””â”€â”€ incubate/owner/repo  â†’ ~/Code/github.com/owner/repo  (symlink)
+├── learn/owner/repo     → ~/Code/github.com/owner/repo  (symlink)
+└── incubate/owner/repo  → ~/Code/github.com/owner/repo  (symlink)
 
-~/Code/               â† ghq root (source of truth)
-â””â”€â”€ github.com/owner/repo/  (actual clone)
+~/Code/               ← ghq root (source of truth)
+└── github.com/owner/repo/  (actual clone)
 ```
 
 ## Health Check
@@ -179,35 +179,35 @@ If broken: `ghq get -u [url]` to restore source.
 ```
 # User shares URL to study
 User: "I want to learn from https://github.com/SawyerHood/dev-browser"
-â†’ ghq get -u https://github.com/SawyerHood/dev-browser
-â†’ mkdir -p Jimmy/learn/SawyerHood
-â†’ ln -sf ~/Code/github.com/SawyerHood/dev-browser Jimmy/learn/SawyerHood/dev-browser
+→ ghq get -u https://github.com/SawyerHood/dev-browser
+→ mkdir -p Jimmy/learn/SawyerHood
+→ ln -sf ~/Code/github.com/SawyerHood/dev-browser Jimmy/learn/SawyerHood/dev-browser
 
 # User wants to develop long-term
 User: "I want to work on claude-mem"
-â†’ /project incubate https://github.com/thedotmack/claude-mem
-â†’ Symlink created, work until done
+→ /project incubate https://github.com/thedotmack/claude-mem
+→ Symlink created, work until done
 
 # User wants to contribute (keep ghq for follow-up)
-User: "Fix a bug in Jimmy-v2"
-â†’ /project incubate https://github.com/Jacobgg994/Jimmy-Jimmy --contribute
-â†’ [edit, commit, push]
-â†’ Auto-offload, ghq kept for PR feedback
+User: "Fix a bug in -Jimmy-Blackwood"
+→ /project incubate https://github.com/Jacobgg994/-Jimmy-Blackwood --contribute
+→ [edit, commit, push]
+→ Auto-offload, ghq kept for PR feedback
 
 # User wants quick flash contribution (full cleanup)
 User: "Quick README fix on Jimmy-skills-cli"
-â†’ /project incubate https://github.com/Jacobgg994/jimmy-skills-cli --flash
-â†’ Issue #17 created
-â†’ Branch: issue-17-fix-readme
-â†’ [edit, commit, push]
-â†’ PR #18 created (Closes #17)
-â†’ Auto-offload + purge
-â†’ "âœ“ Issue #17 â†’ PR #18 â†’ Offloaded & Purged"
+→ /project incubate https://github.com/Jacobgg994/jimmy-skills-cli --flash
+→ Issue #17 created
+→ Branch: issue-17-fix-readme
+→ [edit, commit, push]
+→ PR #18 created (Closes #17)
+→ Auto-offload + purge
+→ "✓ Issue #17 → PR #18 → Offloaded & Purged"
 ```
 
 ## Anti-Patterns
 
-| âŒ Wrong | âœ… Right |
+| ❌ Wrong | ✅ Right |
 |----------|----------|
 | `git clone` directly to Jimmy/ | `ghq get` then symlink |
 | Flat: `Jimmy/learn/repo-name` | Org structure: `Jimmy/learn/owner/repo` |
@@ -239,11 +239,12 @@ ghq list | grep name
 ## Workflow Intensity Scale
 
 ```
-incubate        â†’ Long-term dev (manual cleanup)
-    â†“
---contribute    â†’ Push â†’ offload (keep ghq)
-    â†“
---flash         â†’ Issue â†’ Branch â†’ PR â†’ offload â†’ purge (complete cycle)
+incubate        → Long-term dev (manual cleanup)
+    ↓
+--contribute    → Push → offload (keep ghq)
+    ↓
+--flash         → Issue → Branch → PR → offload → purge (complete cycle)
 ```
+
 
 

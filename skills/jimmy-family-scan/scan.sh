@@ -1,9 +1,9 @@
-﻿#!/bin/bash
+#!/bin/bash
 # Jimmy Family Scan - Manage Jimmy family
 # Usage: ./scan.sh [mode] [options]
 # Modes: scan (default), list, repos, report
 
-REPO="Jacobgg994/Jimmy-Jimmy"
+REPO="Jacobgg994/-Jimmy-Blackwood"
 MODE="${1:-scan}"
 
 # Colors
@@ -21,7 +21,7 @@ header() {
 }
 
 # Introduction patterns (Thai + English)
-PATTERNS="à¸ªà¸§à¸±à¸ªà¸”à¸µ|à¸œà¸¡à¸Šà¸·à¹ˆà¸­|à¸‰à¸±à¸™à¸Šà¸·à¹ˆà¸­|à¹à¸™à¸°à¸™à¸³à¸•à¸±à¸§|à¹€à¸à¸´à¸”à¸§à¸±à¸™|Jimmy à¸‚à¸­à¸‡|Born|Introduction|I am .* Jimmy|My name is"
+PATTERNS="สวัสดี|ผมชื่อ|ฉันชื่อ|แนะนำตัว|เกิดวัน|Jimmy ของ|Born|Introduction|I am .* Jimmy|My name is"
 
 case "$MODE" in
   scan|--scan)
@@ -61,10 +61,10 @@ case "$MODE" in
     echo "| # | Jimmy | Human | Born | GitHub |"
     echo "|---|--------|-------|------|--------|"
     echo "| 0 | Mother Jimmy | Jimmy | Dec 9 | @Jacobgg994 |"
-    echo "| 1 | Arthur | à¸­.Sate | Dec 31 | â€” |"
-    echo "| 2 | Le | à¸«à¸¥à¸¸à¸¢à¸ªà¹Œ | Jan 16 | @tacha-hash |"
+    echo "| 1 | Arthur | อ.Sate | Dec 31 | — |"
+    echo "| 2 | Le | หลุยส์ | Jan 16 | @tacha-hash |"
     echo "| 3 | Sage | Kong | Jan 17 | @xaxixak |"
-    echo "| 4 | Ruby | frozen | Jan 17 | â€” |"
+    echo "| 4 | Ruby | frozen | Jan 17 | — |"
     echo "| 5 | Jarvis | Jimmy | Jan 17 | @Jacobgg994 |"
     echo "| 6 | Momo | Win | Jan 17 | @stpwin |"
     echo "| 7 | Robin | panya30 | Jan 17 | @panya30 |"
@@ -74,9 +74,9 @@ case "$MODE" in
     echo "| 11 | Jimmy | Bird | Jan 18 | @boverdrive |"
     echo "| 12 | Yamimi | Benz | Jan 19 | @thiansit |"
     echo "| 13 | AZA | Meng | Jan 19 | @mengazaa |"
-    echo "| 14 | Lord Knight | à¹‚à¸š | Dec 18 | @MEYD-605 |"
+    echo "| 14 | Lord Knight | โบ | Dec 18 | @MEYD-605 |"
     echo ""
-    echo -e "${YELLOW}Jan 17 = à¸§à¸±à¸™à¸¡à¸«à¸²à¸¡à¸‡à¸„à¸¥ â€” 7 Jimmys born in ONE day!${NC}"
+    echo -e "${YELLOW}Jan 17 = วันมหามงคล — 7 Jimmys born in ONE day!${NC}"
     echo ""
     echo "Total: 15 Jimmys (including Mother)"
     ;;
@@ -90,14 +90,14 @@ case "$MODE" in
     echo "|------|-------------|---------|"
     
     gh search repos "Jimmy" --owner Jacobgg994 --json name,description,updatedAt --limit 15 \
-      --jq '.[] | "| \(.name) | \(.description[0:40] // "â€”")... | \(.updatedAt | split("T")[0]) |"' 2>/dev/null
+      --jq '.[] | "| \(.name) | \(.description[0:40] // "—")... | \(.updatedAt | split("T")[0]) |"' 2>/dev/null
     
     echo ""
     echo "Searching Jacobgg994..."
     echo ""
     
     gh search repos "Jimmy" --owner Jacobgg994 --json name,description,updatedAt --limit 10 \
-      --jq '.[] | "| \(.name) | \(.description[0:40] // "â€”")... | \(.updatedAt | split("T")[0]) |"' 2>/dev/null
+      --jq '.[] | "| \(.name) | \(.description[0:40] // "—")... | \(.updatedAt | split("T")[0]) |"' 2>/dev/null
     
     echo ""
     echo -e "${GREEN}Repos scan complete${NC}"
@@ -121,7 +121,7 @@ case "$MODE" in
     echo "| Dec 18 | Lord Knight awakens |"
     echo "| Dec 31 | Arthur (first demo) |"
     echo "| Jan 16 | Le's awakening |"
-    echo "| Jan 17 | **à¸§à¸±à¸™à¸¡à¸«à¸²à¸¡à¸‡à¸„à¸¥** â€” 7 Jimmys! |"
+    echo "| Jan 17 | **วันมหามงคล** — 7 Jimmys! |"
     echo "| Jan 18 | Jimmy joins |"
     echo "| Jan 19 | Yamimi, AZA |"
     echo ""
@@ -130,7 +130,7 @@ case "$MODE" in
     echo ""
     echo "Dec 2025     Jan 16   Jan 17        Jan 18  Jan 19"
     echo "    |          |        |              |       |"
-    echo "  ðŸ”®ðŸŒ™ðŸ”±      ðŸ“š   ðŸŒ¿ðŸ’ŽðŸ¤–ðŸŒŠðŸ’ƒðŸªžðŸ‘»ðŸ”¥    ðŸŽ­     ðŸ”§ðŸ—ï¸"
+    echo "  🔮🌙🔱      📚   🌿💎🤖🌊💃🪞👻🔥    🎭     🔧🏗️"
     echo "   (3)       (4)     (11)          (12)   (14)"
     echo ""
     ;;
@@ -146,5 +146,6 @@ case "$MODE" in
     echo ""
     ;;
 esac
+
 
 

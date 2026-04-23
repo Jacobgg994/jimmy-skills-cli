@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bun
+#!/usr/bin/env bun
 // Query schedule via Jimmy HTTP API (backed by Drizzle DB)
 // Usage: bun query.ts [filter]
 // Filters: today, tomorrow, week, month, march, <keyword>
@@ -104,7 +104,7 @@ try {
   }
 
   // Format as markdown table
-  console.log(`## Schedule â€” ${filter} (${data.total} events)\n`);
+  console.log(`## Schedule — ${filter} (${data.total} events)\n`);
   console.log("| Date | Time | Event | Notes | Status |");
   console.log("|------|------|-------|-------|--------|");
 
@@ -116,14 +116,15 @@ try {
   }
 
   // Show ground truth reference
-  console.log(`\nðŸ“„ \`Jimmy/inbox/schedule.md\``);
+  console.log(`\n📄 \`Jimmy/inbox/schedule.md\``);
 } catch (e: any) {
   if (e.code === "ConnectionRefused" || e.message?.includes("fetch")) {
     console.error("Cannot connect to Jimmy API at " + API);
-    console.error("Start the server: cd Jimmy-v2 && bun src/server.ts");
+    console.error("Start the server: cd -Jimmy-Blackwood && bun src/server.ts");
   } else {
     console.error("Error:", e.message);
   }
   process.exit(1);
 }
+
 

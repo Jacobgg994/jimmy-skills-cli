@@ -1,4 +1,4 @@
-﻿---
+---
 name: project-manager
 description: Manage project lifecycle - learn, incubate, spinoff, reunion, offload, history. Use ghq + symlinks.
 ---
@@ -10,20 +10,20 @@ Complete project lifecycle management with 8 commands.
 ## Slug Format (Mixed Lookup)
 
 Supports both formats:
-- **Full**: `owner/repo` (priority) â€” e.g., `thedotmack/claude-mem`
-- **Short**: `repo-name` (fallback) â€” e.g., `claude-mem`
+- **Full**: `owner/repo` (priority) — e.g., `thedotmack/claude-mem`
+- **Short**: `repo-name` (fallback) — e.g., `claude-mem`
 
 ```yaml
 # Jimmy/memory/slugs.yaml
 thedotmack/claude-mem: ~/Code/github.com/thedotmack/claude-mem
-Jacobgg994/Jimmy-v2: ~/Code/github.com/Jacobgg994/Jimmy-v2
+Jacobgg994/-Jimmy-Blackwood: ~/Code/github.com/Jacobgg994/-Jimmy-Blackwood
 ```
 
 ## Commands
 
 | Command | Action | Script |
 |---------|--------|--------|
-| `/project search [query]` | Search repos (localâ†’remote) | `scripts/search.sh` |
+| `/project search [query]` | Search repos (local→remote) | `scripts/search.sh` |
 | `/project learn [url\|slug]` | Read-only study | `scripts/learn.sh` |
 | `/project incubate [name]` | Work (auto-create if needed) | `scripts/incubate.sh` |
 | `/project spinoff [name]` | Graduate to own repo | `scripts/spinoff.sh` |
@@ -35,21 +35,21 @@ Jacobgg994/Jimmy-v2: ~/Code/github.com/Jacobgg994/Jimmy-v2
 ## Lifecycle
 
 ```
-/project search    â†’ ðŸ” Search repos (local ghq first, then GitHub API)
-/project learn     â†’ ðŸ“š Study external repo (Jimmy/learn/)
-/project incubate  â†’ ðŸŒ± Work on project (Jimmy/incubate/, auto-create if needed)
-/project spinoff   â†’ ðŸŽ“ Graduate to own repo
-/project reunion   â†’ ðŸ¤ Sync learnings + offload
-/project offload   â†’ ðŸ“¤ Just remove symlinks
-/project index     â†’ ðŸ”® Index manifests to Jimmy
-/project history   â†’ ðŸ“Š Git activity analysis
+/project search    → 🔍 Search repos (local ghq first, then GitHub API)
+/project learn     → 📚 Study external repo (Jimmy/learn/)
+/project incubate  → 🌱 Work on project (Jimmy/incubate/, auto-create if needed)
+/project spinoff   → 🎓 Graduate to own repo
+/project reunion   → 🤝 Sync learnings + offload
+/project offload   → 📤 Just remove symlinks
+/project index     → 🔮 Index manifests to Jimmy
+/project history   → 📊 Git activity analysis
 ```
 
 ## Limits
 
 | Type | Max | Reason |
 |------|-----|--------|
-| **Incubate** | 5 | Cognitive load â€” focus over quantity |
+| **Incubate** | 5 | Cognitive load — focus over quantity |
 | Learn | No limit | Read-only, low overhead |
 
 **Before incubating new project**: Check count, offload if > 5.
@@ -89,8 +89,8 @@ Jacobgg994/Jimmy-v2: ~/Code/github.com/Jacobgg994/Jimmy-v2
 
 ### Offload (remove symlinks)
 ```bash
-.claude/skills/project-manager/scripts/offload.sh Jacobgg994/Jimmy-v2
-.claude/skills/project-manager/scripts/offload.sh Jimmy-v2  # short slug
+.claude/skills/project-manager/scripts/offload.sh Jacobgg994/-Jimmy-Blackwood
+.claude/skills/project-manager/scripts/offload.sh -Jimmy-Blackwood  # short slug
 .claude/skills/project-manager/scripts/offload.sh all        # clean slate
 ```
 
@@ -110,19 +110,19 @@ Jacobgg994/Jimmy-v2: ~/Code/github.com/Jacobgg994/Jimmy-v2
 
 ## Reunion Pattern
 
-1. **Connect** â†’ `ghq get -u` (sync via ghq, not git pull)
-2. **Scan** â†’ Find `Jimmy/memory/*.md`, `learnings/`, `retrospectives/`, `docs/`
-3. **Manifest** â†’ Write to `Jimmy/memory/logs/index-YYYY-MM-DD-slug.json`
-4. **Log** â†’ Write to `Jimmy/memory/logs/reunion-YYYY-MM-DD.log`
-5. **Offload** â†’ Remove symlink (unless `--keep`)
+1. **Connect** → `ghq get -u` (sync via ghq, not git pull)
+2. **Scan** → Find `Jimmy/memory/*.md`, `learnings/`, `retrospectives/`, `docs/`
+3. **Manifest** → Write to `Jimmy/memory/logs/index-YYYY-MM-DD-slug.json`
+4. **Log** → Write to `Jimmy/memory/logs/reunion-YYYY-MM-DD.log`
+5. **Offload** → Remove symlink (unless `--keep`)
 
 ## Index Pattern
 
-1. **Read** â†’ Load manifest JSON files
-2. **Score** â†’ Rank files by type (retrospectives=10, docs=5, CLAUDE.md=0)
-3. **Filter** â†’ Skip i18n, CLAUDE.md, low-value files
-4. **Extract** â†’ Get key content from high-value files
-5. **Learn** â†’ Call `Jimmy_learn` with source attribution
+1. **Read** → Load manifest JSON files
+2. **Score** → Rank files by type (retrospectives=10, docs=5, CLAUDE.md=0)
+3. **Filter** → Skip i18n, CLAUDE.md, low-value files
+4. **Extract** → Get key content from high-value files
+5. **Learn** → Call `Jimmy_learn` with source attribution
 
 ## Offload Pattern
 
@@ -132,7 +132,7 @@ Jacobgg994/Jimmy-v2: ~/Code/github.com/Jacobgg994/Jimmy-v2
 
 ## Files
 
-- `scripts/search.sh` - Search repos (local ghq â†’ GitHub API)
+- `scripts/search.sh` - Search repos (local ghq → GitHub API)
 - `scripts/resolve-slug.sh` - Shared slug resolution (owner/repo + short)
 - `scripts/learn.sh` - Clone + symlink to Jimmy/learn/
 - `scripts/incubate.sh` - Clone (or create) + symlink to Jimmy/incubate/
@@ -142,5 +142,6 @@ Jacobgg994/Jimmy-v2: ~/Code/github.com/Jacobgg994/Jimmy-v2
 - `scripts/index.sh` - Index manifests to Jimmy
 - `scripts/history.sh` - Git activity analysis
 - `templates/slugs.yaml` - Registry template
+
 
 
