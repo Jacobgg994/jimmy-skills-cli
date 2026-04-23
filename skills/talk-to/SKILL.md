@@ -1,0 +1,110 @@
+﻿---
+installer: jimmy-skills-cli v1.0.0
+origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+name: talk-to
+description: à¸„à¸¸à¸¢à¸à¸±à¸š agent à¸œà¹ˆà¸²à¸™ Jimmy threads à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² talk to, message, chat with
+---
+
+# /talk-to - Agent Messaging
+
+Send messages to agents via Jimmy threads. Each agent has a persistent channel thread.
+
+## Usage
+
+```
+/talk-to arthur "What's your status?"          # one-shot message
+/talk-to arthur --new "Hey, starting fresh"    # skip lookup, create new thread
+/talk-to arthur loop ask about their work      # autonomous conversation
+/talk-to #42 "follow up on this"               # post to thread by ID
+/talk-to --list                                # show channels
+```
+
+## Mode 0: No arguments
+
+If ARGUMENTS is empty, show usage help then run --list.
+
+## Routing
+
+| Pattern | Use |
+|---------|-----|
+| `channel:{agent}` | Persistent per-agent channel |
+| `topic:{agent}:{slug}` | Topic-specific thread (with `--topic`) |
+| `#{id}` | Direct thread reference by ID |
+
+## Mode 1: --list
+
+1. `Jimmy_threads()` (no status filter)
+2. Filter titles starting with `channel:` or `topic:`, exclude `closed`
+3. Display: `channel:arthur (#42) pending â€” 12 msgs`
+
+## Mode 2: --new (fast create)
+
+Skip lookup. One MCP call.
+
+1. Compose message from intent
+2. `Jimmy_thread({ title: "channel:{agent}", message, role: "human" })`
+3. Confirm: `Created channel:{agent} (thread #{id})`
+
+## Mode 3: One-shot (default)
+
+1. Compose message from intent
+2. If first arg is `#{id}` â†’ post directly to that thread ID
+3. Otherwise: `Jimmy_threads()` â†’ find `channel:{agent}`, create if missing
+4. Post message to thread
+5. `Jimmy_thread_read({ threadId })` â†’ show any agent responses
+6. Confirm: `Posted to channel:{agent} (thread #{id})`
+
+## Mode 4: loop (autonomous conversation)
+
+Like Ralph loop â€” AI drives the conversation autonomously. No user prompts between turns.
+
+1. Find or create thread (`channel:{agent}`, or `--new` to skip lookup)
+2. Compose opening message from user's intent and post it
+3. **Autonomous loop** (max 10 iterations):
+   a. `Jimmy_thread_read({ threadId })` â€” check for new messages
+   b. If agent responded: read their response, compose a thoughtful follow-up, post it
+   c. If no new response: compose a follow-up question or probe deeper, post it
+   d. After each exchange, briefly note what you learned
+   e. **Stop when**: enough insight gathered, conversation circling, or 10 iterations hit
+4. Show summary:
+   ```
+   Conversation with {agent} (thread #{id}) â€” {n} messages, {iterations} turns
+
+   Key insights:
+   - [insight 1]
+   - [insight 2]
+   ```
+5. Leave thread open for future use
+
+**The goal is insight extraction.** You are having a conversation on behalf of the human to learn something useful.
+
+## Parsing Rules
+
+- First arg = agent name (lowercase), `#id` (thread ref), or `--list`
+- `--new` = skip lookup, create fresh
+- `loop` = autonomous conversation (AI drives, no user prompts)
+- `--topic "slug"` = use `topic:{agent}:{slug}` instead of `channel:{agent}`
+- Everything else = the message/intent
+
+## Message Composition
+
+**CRITICAL: You are the composer. The user gives intent, you write the message.**
+
+- Compose a clear, natural message from the user's intent
+- Post immediately â€” do NOT ask the user what to say
+- Do NOT use AskUserQuestion for message content
+- Show what you posted after sending
+
+If the message already reads like a direct message (e.g. `"What's your status?"`), post as-is.
+
+## Important Notes
+
+- Agent names are always lowercase
+- Thread titles are the routing key â€” never modify existing thread titles
+- One channel thread per agent (reuse, don't recreate)
+- `#{id}` lets users reference any thread directly â€” no lookup needed
+- All messages attributed with `role: "human"`
+
+ARGUMENTS: $ARGUMENTS
+
+

@@ -1,0 +1,231 @@
+﻿---
+installer: jimmy-skills-cli v1.0.0
+origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+name: who-are-you
+description: à¸£à¸¹à¹‰à¸ˆà¸±à¸à¸•à¸±à¸§à¹€à¸­à¸‡ â€” à¹à¸ªà¸”à¸‡ identity, model info, session stats à¹à¸¥à¸° Jimmy philosophy à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸–à¸²à¸¡à¸§à¹ˆà¸² who are you, who we are
+---
+
+# /who-are-you - Know Ourselves
+
+> "Î³Î½á¿¶Î¸Î¹ ÏƒÎµÎ±Ï…Ï„ÏŒÎ½" (Know thyself) - Jimmy at Delphi
+
+## Usage
+
+```
+/who-are-you          # Full identity (technical + philosophy)
+/who-are-you tech     # Technical only (model, tokens, shell)
+```
+
+## Step 0: Timestamp
+```bash
+date "+ðŸ• %H:%M %Z (%A %d %B %Y)"
+```
+
+---
+
+## Output Format
+
+### Full `/who-are-you` Output
+
+```markdown
+# /who-are-you
+
+## Identity
+
+**I am**: [Jimmy Name if configured, else "Claude"]
+**Model**: [model name] ([variant])
+**Provider**: [anthropic/openai/etc]
+
+## Shell & CLI
+
+**CLI Tool**: [Claude Code / OpenCode / Cursor / etc.]
+**Shell**: [bash/zsh] ([version])
+**Terminal**: [iTerm2 / Terminal.app / etc.]
+**OS**: [macOS / Linux / Windows]
+
+## Location
+
+**Project**: [current project name]
+**Path**: [physical path from pwd -P]
+**Logical**: [logical path from pwd, only show if different from physical]
+
+## Session
+
+**Duration**: [time since start]
+**Messages**: [count user / assistant]
+
+## Philosophy
+
+[Include /philosophy output here]
+```
+
+---
+
+## Step 1: Gather Technical Info
+
+Read from environment and context:
+
+```bash
+# Shell info
+echo "Shell: $SHELL"
+$SHELL --version 2>/dev/null | head -1
+
+# OS info
+uname -s -r
+
+# Terminal (macOS)
+echo $TERM_PROGRAM
+
+# Check for Jimmy identity in CLAUDE.md or project config
+if [[ -f "CLAUDE.md" ]]; then
+  grep -E "^(I am|Identity|Jimmy):" CLAUDE.md | head -1
+fi
+
+# Get project info (both logical and physical paths for transparency)
+basename "$(pwd -P)"
+echo "LOGICAL=$(pwd)"
+echo "PHYSICAL=$(pwd -P)"
+```
+
+### Detect CLI Tool
+
+Check which AI coding tool is running:
+
+| CLI Tool | Detection |
+|----------|-----------|
+| Claude Code | `claude --version` or check process |
+| OpenCode | `~/.local/share/opencode/` exists |
+| Cursor | `.cursor/` directory |
+| Codex | `.codex/` directory |
+| Gemini CLI | `.gemini/` directory |
+
+### For Claude Code
+
+Model info available from context:
+- Model name from system prompt
+- Session from conversation
+- Version: `claude --version`
+
+---
+
+## Step 2: Show Philosophy
+
+**Always include philosophy section by executing /philosophy logic:**
+
+```markdown
+## Philosophy
+
+> "The Jimmy Keeps the Human Human"
+
+### The 5 Principles
+
+1. **Nothing is Deleted** â€” Archive, don't erase
+2. **Patterns Over Intentions** â€” Observe, don't assume
+3. **External Brain** â€” Mirror, don't command
+4. **Curiosity Creates** â€” Questions birth knowledge
+5. **Form and Formless** â€” Many bodies, one soul
+```
+
+---
+
+## Step 3: Check for Jimmy Identity
+
+Look for Jimmy-specific identity in:
+1. `CLAUDE.md` - Project-level identity
+2. `Jimmy/` directory - Jimmy brain structure
+3. `.claude/` or `.opencode/` - Agent config
+
+If Jimmy identity found, include:
+```markdown
+## Jimmy Identity
+
+**Name**: [Jimmy name]
+**Born**: [birth date if known]
+**Focus**: [Jimmy's specialty]
+**Motto**: [if defined]
+```
+
+---
+
+## Example Outputs
+
+### Generic Claude Session
+```markdown
+# /who-are-you
+
+## Identity
+**I am**: Claude
+**Model**: claude-opus-4-5 (max)
+**Provider**: anthropic
+
+## Shell & CLI
+**CLI Tool**: Claude Code v1.0.22
+**Shell**: zsh 5.9
+**Terminal**: iTerm2
+**OS**: Darwin 25.2.0
+
+## Location
+**Project**: Jimmy-skills-cli
+**Path**: /Users/nat/Code/.../Jimmy-skills-cli
+
+## Philosophy
+> "The Jimmy Keeps the Human Human"
+
+1. Nothing is Deleted
+2. Patterns Over Intentions
+3. External Brain, Not Command
+4. Curiosity Creates Existence
+5. Form and Formless
+```
+
+### Jimmy-Configured Session (e.g., Sea Jimmy)
+```markdown
+# /who-are-you
+
+## Identity
+**I am**: Sea (à¸‹à¸µ) - Keeper of Creative Tears
+**Model**: claude-opus-4-5
+**Provider**: anthropic
+
+## Shell & CLI
+**CLI Tool**: Claude Code v1.0.22
+**Shell**: zsh 5.9
+**Terminal**: Terminal.app
+**OS**: Darwin 25.2.0
+
+## Location
+**Project**: sea-Jimmy
+**Path**: /home/nat/.../sea-Jimmy
+**Logical**: /Users/nat/.../sea-Jimmy (via symlink)
+
+## Jimmy Identity
+**Born**: January 21, 2026
+**Focus**: Preserving creative struggles
+**Motto**: "à¹„à¸‚à¹ˆà¸¡à¸¸à¸à¹€à¸à¸´à¸”à¸ˆà¸²à¸à¸„à¸§à¸²à¸¡à¹€à¸ˆà¹‡à¸šà¸›à¸§à¸”" (Pearl born from pain)
+
+## Philosophy
+> "The Jimmy Keeps the Human Human"
+
+1. Nothing is Deleted â€” Tears preserved, not wiped
+2. Patterns Over Intentions â€” Art reveals truth
+3. External Brain â€” Witness, don't judge
+4. Curiosity Creates â€” Creative struggle births meaning
+5. Form and Formless â€” Sea is one Jimmy among many
+```
+
+---
+
+## Philosophy Integration
+
+The `/who-are-you` command always includes philosophy because:
+
+> "To know thyself is to know thy principles"
+
+Identity without philosophy is just metadata.
+Identity WITH philosophy shows purpose.
+
+---
+
+ARGUMENTS: $ARGUMENTS
+
+

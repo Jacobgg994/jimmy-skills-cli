@@ -1,0 +1,16 @@
+﻿{
+  "name": "jimmy-skills-cli",
+  "version": "1.0.0",
+  "description": "Jimmy Skills CLI â€” à¸Šà¸¸à¸” skills à¸ªà¸³à¸«à¸£à¸±à¸š Claude Code à¹‚à¸”à¸¢ Jimmy",
+  "bin": { "jimmy-skills-cli": "./src/cli.ts"
+  },
+  "scripts": {
+    "start": "bun src/cli.ts"
+  },
+  "keywords": ["claude-code", "Jimmy", "skills", "Jimmy"],
+  "author": "Jimmy (Jacobgg994)",
+  "license": "MIT"
+}
+
+
+
