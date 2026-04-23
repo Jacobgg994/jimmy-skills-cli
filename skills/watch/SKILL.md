@@ -1,12 +1,12 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.0.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: watch
-description: à¹€à¸£à¸µà¸¢à¸™à¸£à¸¹à¹‰à¸ˆà¸²à¸ YouTube videos à¸œà¹ˆà¸²à¸™ Gemini transcription à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² watch, transcribe youtube, learn from video
+description: เรียนรู้จาก YouTube videos ผ่าน Gemini transcription ใช้เมื่อพูดว่า watch, transcribe youtube, learn from video
 alias: /gemini transcribe
 ---
 
-# /watch - YouTube â†’ Gemini â†’ Jimmy Knowledge
+# /watch - YouTube → Gemini → Jimmy Knowledge
 
 **Alias for `/gemini transcribe`** with Jimmy integration.
 
@@ -94,7 +94,7 @@ Jimmy_learn({
 ## Output Summary
 
 ```markdown
-## ðŸŽ¬ Video Learned: [TITLE]
+## 🎬 Video Learned: [TITLE]
 
 **Source**: [YOUTUBE_URL]
 **Gemini**: [GEMINI_CONVERSATION_URL]
@@ -104,7 +104,7 @@ Jimmy_learn({
 
 ### Saved To
 - Learning: Jimmy/memory/learnings/[DATE]_[SLUG].md
-- Jimmy: Indexed âœ“
+- Jimmy: Indexed ✓
 
 ### Quick Access
 `/trace [SLUG]` or `Jimmy_search("[TITLE]")`
@@ -132,7 +132,7 @@ gemini_conversation: https://gemini.google.com/app/[conversation_id]
 
 - Gemini has YouTube understanding built-in (can process video directly)
 - Long videos may take 30-60 seconds to process
-- If Gemini can't access video, it will say so â€” fallback to manual notes
+- If Gemini can't access video, it will say so — fallback to manual notes
 - Works with: youtube.com, youtu.be, youtube.com/shorts/
 
 ## Error Handling

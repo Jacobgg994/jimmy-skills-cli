@@ -1,8 +1,8 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.0.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: worktree
-description: Git worktree à¸ªà¸³à¸«à¸£à¸±à¸šà¸—à¸³à¸‡à¸²à¸™à¹à¸šà¸š parallel à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² worktree, parallel work, new agent, start parallel
+description: Git worktree สำหรับทำงานแบบ parallel ใช้เมื่อพูดว่า worktree, parallel work, new agent, start parallel
 ---
 
 # /worktree
@@ -26,10 +26,10 @@ Manage git worktrees for parallel agent work.
 ARGUMENTS: $ARGUMENTS
 ```
 
-- No args, `list`, or `status` â†’ **List with Status**
-- `new` â†’ **Create New**
-- Number (1, 2, 3...) â†’ **Show Path**
-- `remove N` â†’ **Remove**
+- No args, `list`, or `status` → **List with Status**
+- `new` → **Create New**
+- Number (1, 2, 3...) → **Show Path**
+- `remove N` → **Remove**
 
 ---
 
@@ -93,9 +93,9 @@ Open in VS Code: code /path/to/repo.wt-1
 **Structure:**
 ```
 parent/
-â”œâ”€â”€ repo/           # main (this workspace)
-â”œâ”€â”€ repo.wt-1/      # branch: agents/1
-â””â”€â”€ repo.wt-2/      # branch: agents/2
+├── repo/           # main (this workspace)
+├── repo.wt-1/      # branch: agents/1
+└── repo.wt-2/      # branch: agents/2
 ```
 
 ---
@@ -189,7 +189,7 @@ git worktree list | grep "wt-$NEXT"
 
 ```bash
 # 1. Check directory removed
-[ ! -d "$WT_PATH" ] && echo "âœ“ Directory removed"
+[ ! -d "$WT_PATH" ] && echo "✓ Directory removed"
 
 # 2. Check worktree unregistered
 git worktree list | grep -v "wt-$N"

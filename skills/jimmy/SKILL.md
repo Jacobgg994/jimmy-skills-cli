@@ -1,8 +1,8 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.0.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: Jimmy
-description: à¸ˆà¸±à¸”à¸à¸²à¸£ Jimmy skills à¹à¸¥à¸° profiles à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² Jimmy, profile, install skill, remove skill
+description: จัดการ Jimmy skills และ profiles ใช้เมื่อพูดว่า Jimmy, profile, install skill, remove skill
 ---
 
 # /Jimmy
@@ -63,12 +63,12 @@ Print a summary table at the end:
 Platform: macOS / Linux (Ubuntu) / Windows
 Tool    Status
 ----    ------
-git     âœ“ installed (2.x.x)
-gh      âœ“ installed + authenticated
-ghq     âœ“ installed (root: ~/Code)
+git     ✓ installed (2.x.x)
+gh      ✓ installed + authenticated
+ghq     ✓ installed (root: ~/Code)
 ```
 
-If everything is already set up, just print the summary â€” no changes needed.
+If everything is already set up, just print the summary — no changes needed.
 
 ### /Jimmy profile
 

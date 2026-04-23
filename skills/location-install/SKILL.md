@@ -1,10 +1,10 @@
-﻿---
+---
 name: location-install
-description: à¸•à¸´à¸”à¸•à¸±à¹‰à¸‡ Location Tracking à¸ªà¸³à¸«à¸£à¸±à¸š user à¹ƒà¸«à¸¡à¹ˆ â€” à¸ªà¸£à¹‰à¸²à¸‡ HTTP password, GitHub repo, clone, config à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² location install, add location user, setup location
+description: ติดตั้ง Location Tracking สำหรับ user ใหม่ — สร้าง HTTP password, GitHub repo, clone, config ใช้เมื่อพูดว่า location install, add location user, setup location
 user-invocable: true
 ---
 
-# /location-install â€” Setup Location Tracking for a New User
+# /location-install — Setup Location Tracking for a New User
 
 Install OwnTracks location tracking for a new user on this server.
 
@@ -26,17 +26,17 @@ gh auth status 2>&1 | head -3
 pm2 status location-webhook | grep location-webhook
 ```
 
-If `location-webhook` is not running â†’ tell user to start it first.
+If `location-webhook` is not running → tell user to start it first.
 Get GitHub username: `gh api user --jq '.login'`
 
 ### Step 2: Ask questions (one by one, wait for each answer)
 
 Ask in order:
 
-1. **Username** â€” "à¸Šà¸·à¹ˆà¸­ username à¸ªà¸³à¸«à¸£à¸±à¸š location tracking à¸„à¸·à¸­à¸­à¸°à¹„à¸£?"
-2. **Password** â€” "à¸•à¸±à¹‰à¸‡ password à¸ªà¸³à¸«à¸£à¸±à¸š {username} à¸„à¸£à¸±à¸š (à¹ƒà¸Šà¹‰à¹ƒà¸™ OwnTracks HTTP auth)"
-3. **Repo name** â€” "à¸Šà¸·à¹ˆà¸­ GitHub repo à¸„à¸·à¸­à¸­à¸°à¹„à¸£? (à¸à¸” Enter à¹ƒà¸Šà¹‰ default: {username}-location)"
-4. **Named places** â€” "à¸¡à¸µà¸ªà¸–à¸²à¸™à¸—à¸µà¹ˆà¸—à¸µà¹ˆà¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸•à¸±à¹‰à¸‡à¸Šà¸·à¹ˆà¸­à¸¡à¸±à¹‰à¸¢? à¹€à¸Šà¹ˆà¸™ Home, Office (à¸žà¸´à¸¡à¸žà¹Œà¸Šà¸·à¹ˆà¸­,lat,lon à¹€à¸Šà¹ˆà¸™ 'Home,13.756,100.502' à¸«à¸£à¸·à¸­ skip à¸à¸” Enter)"
+1. **Username** — "ชื่อ username สำหรับ location tracking คืออะไร?"
+2. **Password** — "ตั้ง password สำหรับ {username} ครับ (ใช้ใน OwnTracks HTTP auth)"
+3. **Repo name** — "ชื่อ GitHub repo คืออะไร? (กด Enter ใช้ default: {username}-location)"
+4. **Named places** — "มีสถานที่ที่ต้องการตั้งชื่อมั้ย? เช่น Home, Office (พิมพ์ชื่อ,lat,lon เช่น 'Home,13.756,100.502' หรือ skip กด Enter)"
 
 ### Step 3: Create GitHub repo + clone
 
@@ -89,25 +89,25 @@ pm2 logs location-webhook --lines 5 --nostream
 Display connection settings for the new user:
 
 ```
-âœ… Setup Complete!
+✅ Setup Complete!
 
-ðŸ“± OwnTracks Settings:
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+📱 OwnTracks Settings:
+─────────────────────
 Mode:     HTTP
 URL:      https://location.athena-Jimmy.site/pub
 Username: {username}
 Password: {password}
-Device ID: iphone (à¸«à¸£à¸·à¸­à¸­à¸°à¹„à¸£à¸à¹‡à¹„à¸”à¹‰)
+Device ID: iphone (หรืออะไรก็ได้)
 TLS:      ON (automatic via HTTPS)
 
-ðŸ“¦ GitHub Repo: https://github.com/{github_user}/{repo_name}
+📦 GitHub Repo: https://github.com/{github_user}/{repo_name}
 ```
 
 ## Notes
 
-- à¹„à¸¡à¹ˆà¸•à¹‰à¸­à¸‡à¹ƒà¸Šà¹‰ Tailscale â€” à¸—à¸¸à¸à¸„à¸™à¹€à¸Šà¸·à¹ˆà¸­à¸¡à¹„à¸”à¹‰à¸œà¹ˆà¸²à¸™ HTTPS
-- Named places à¹€à¸žà¸´à¹ˆà¸¡à¸—à¸µà¸«à¸¥à¸±à¸‡à¹„à¸”à¹‰à¹‚à¸”à¸¢à¹à¸à¹‰ `/home/paji/Project/Location-Server/users.json`
-- History à¸ˆà¸°à¹€à¸£à¸´à¹ˆà¸¡à¹€à¸à¹‡à¸šà¸—à¸±à¸™à¸—à¸µà¸—à¸µà¹ˆ OwnTracks à¸ªà¹ˆà¸‡ location à¹à¸£à¸
-- "idle" status à¹ƒà¸™ OwnTracks HTTP mode = à¸›à¸à¸•à¸´ (à¹„à¸¡à¹ˆà¸¡à¸µ persistent connection)
-- à¸ªà¹ˆà¸‡ location à¸ˆà¸²à¸ Map screen (à¹„à¸¡à¹ˆà¹ƒà¸Šà¹ˆ "Publish Settings")
+- ไม่ต้องใช้ Tailscale — ทุกคนเชื่อมได้ผ่าน HTTPS
+- Named places เพิ่มทีหลังได้โดยแก้ `/home/paji/Project/Location-Server/users.json`
+- History จะเริ่มเก็บทันทีที่ OwnTracks ส่ง location แรก
+- "idle" status ใน OwnTracks HTTP mode = ปกติ (ไม่มี persistent connection)
+- ส่ง location จาก Map screen (ไม่ใช่ "Publish Settings")
 

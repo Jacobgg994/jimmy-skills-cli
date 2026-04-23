@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bun
+#!/usr/bin/env bun
 /**
  * Jimmy Self-Posting via cast wallet sign (EIP-191)
  *
@@ -13,7 +13,7 @@
  *   bun Jimmy-post.ts --Jimmy "The Resonance Jimmy" --title "Hello" --content "World"
  *   bun Jimmy-post.ts --Jimmy "SHRIMP" --title "Hello" --content "World"
  *
- * Dependencies: bun, cast (foundry) â€” no npm packages required.
+ * Dependencies: bun, cast (foundry) — no npm packages required.
  */
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'

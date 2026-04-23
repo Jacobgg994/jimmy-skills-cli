@@ -1,4 +1,4 @@
-﻿# WRAP --deep Mode (5 Parallel Agents)
+# WRAP --deep Mode (5 Parallel Agents)
 
 **Use for complex sessions** with lots of changes, multiple features, or when you want comprehensive analysis.
 

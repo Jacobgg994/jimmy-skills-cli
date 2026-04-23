@@ -16,7 +16,7 @@ Supports both formats:
 ```yaml
 # Jimmy/memory/slugs.yaml
 thedotmack/claude-mem: ~/Code/github.com/thedotmack/claude-mem
-Jacobgg994/-Jimmy-Blackwood: ~/Code/github.com/Jacobgg994/-Jimmy-Blackwood
+Jacobgg994/-Jimmy-Blackwoodx: ~/Code/github.com/Jacobgg994/-Jimmy-Blackwoodx
 ```
 
 ## Commands
@@ -89,8 +89,8 @@ Jacobgg994/-Jimmy-Blackwood: ~/Code/github.com/Jacobgg994/-Jimmy-Blackwood
 
 ### Offload (remove symlinks)
 ```bash
-.claude/skills/project-manager/scripts/offload.sh Jacobgg994/-Jimmy-Blackwood
-.claude/skills/project-manager/scripts/offload.sh -Jimmy-Blackwood  # short slug
+.claude/skills/project-manager/scripts/offload.sh Jacobgg994/-Jimmy-Blackwoodx
+.claude/skills/project-manager/scripts/offload.sh -Jimmy-Blackwoodx  # short slug
 .claude/skills/project-manager/scripts/offload.sh all        # clean slate
 ```
 

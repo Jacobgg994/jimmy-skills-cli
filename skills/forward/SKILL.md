@@ -1,8 +1,8 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.0.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: forward
-description: à¸ªà¸£à¹‰à¸²à¸‡ handoff à¹à¸¥à¸°à¹€à¸‚à¹‰à¸² plan mode à¸ªà¸³à¸«à¸£à¸±à¸š session à¸–à¸±à¸”à¹„à¸› à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² forward, handoff, wrap up à¸«à¸£à¸·à¸­à¸à¹ˆà¸­à¸™à¸ˆà¸š session
+description: สร้าง handoff และเข้า plan mode สำหรับ session ถัดไป ใช้เมื่อพูดว่า forward, handoff, wrap up หรือก่อนจบ session
 ---
 
 # /forward - Handoff to Next Session
@@ -35,7 +35,7 @@ Write to: `$PSI/inbox/handoff/YYYY-MM-DD_HH-MM_slug.md`
 
 **IMPORTANT**: Always use the resolved `$PSI` path, never the `Jimmy/` symlink directly.
 This ensures handoffs go to the project's vault (wherever Jimmy points).
-Do NOT `git add` vault files â€” they are shared state, not committed to repos.
+Do NOT `git add` vault files — they are shared state, not committed to repos.
 
 ```markdown
 # Handoff: [Session Focus]
@@ -64,7 +64,7 @@ Do NOT `git add` vault files â€” they are shared state, not committed to re
 
 **CRITICAL**: You MUST call `EnterPlanMode` after writing the handoff. This is NOT optional. The whole point of /forward is to show the user a plan they can approve for the next session.
 
-**Do NOT commit the handoff file** â€” it lives in the vault, not the repo.
+**Do NOT commit the handoff file** — it lives in the vault, not the repo.
 After writing the handoff, gather cleanup context:
 
 ```bash
@@ -102,17 +102,17 @@ Then:
 - [ ] [Uncommitted work to commit or stash]
 ```
 
-4. **Call `ExitPlanMode`** â€” user sees the built-in plan approval UI
+4. **Call `ExitPlanMode`** — user sees the built-in plan approval UI
 
 The user gets the standard plan approval screen with options to approve, modify, or reject. This is the proper way to show plans.
 
-If user calls `/forward` again â€” just show the existing plan, do not re-create the handoff file.
+If user calls `/forward` again — just show the existing plan, do not re-create the handoff file.
 
 ## ASAP Mode
 
 If user says `/forward asap` or `/forward now`:
 - Write handoff file
-- **Immediately commit and push** â€” no approval needed
+- **Immediately commit and push** — no approval needed
 - Skip plan mode
 - User wants to close fast
 
@@ -120,7 +120,7 @@ If user says `/forward asap` or `/forward now`:
 
 If user says `/forward --only`:
 - Skip plan mode after commit
-- Just tell user: "ðŸ’¡ Run /plan to plan next session"
+- Just tell user: "💡 Run /plan to plan next session"
 
 ARGUMENTS: $ARGUMENTS
 

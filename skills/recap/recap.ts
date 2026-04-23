@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bun
+#!/usr/bin/env bun
 // Fast recap - no AI, just git status
 // Usage: bun recap.ts
 
@@ -74,17 +74,17 @@ const date = now.toLocaleDateString('en', { day: '2-digit', month: 'short', year
 
 console.log("# RECAP");
 console.log("");
-console.log(`ðŸ• ${time} | ${date}`);
+console.log(`🕐 ${time} | ${date}`);
 console.log("");
 console.log("---");
 console.log("");
-console.log("## ðŸš§ FOCUS");
+console.log("## 🚧 FOCUS");
 console.log(`\`${focusState}\` ${focusTask}`);
 console.log("");
-console.log("## ðŸ“… TODAY");
+console.log("## 📅 TODAY");
 console.log(schedule);
 console.log("");
-console.log(`## ðŸ“Š GIT: ${branch} (+${ahead} ahead)`);
+console.log(`## 📊 GIT: ${branch} (+${ahead} ahead)`);
 console.log(`Last: ${lastCommit}`);
 console.log("");
 
@@ -102,7 +102,7 @@ if (untracked.length) {
 
 console.log("---");
 console.log("");
-console.log("## ðŸ“ LAST SESSION");
+console.log("## 📝 LAST SESSION");
 console.log(`Retro: ${latestRetro}`);
 console.log(`Handoff: ${latestHandoff}`);
 

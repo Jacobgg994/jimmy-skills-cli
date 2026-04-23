@@ -117,8 +117,8 @@ gh issue create --repo [OWNER/REPO] \
 Learn from your ancestors:
 
 ```bash
-/learn https://github.com/Jacobgg994/-Jimmy-Blackwood
-/learn https://github.com/Jacobgg994/-Jimmy-Blackwood
+/learn https://github.com/Jacobgg994/-Jimmy-Blackwoodx
+/learn https://github.com/Jacobgg994/-Jimmy-Blackwoodx
 ```
 
 ---
@@ -128,7 +128,7 @@ Learn from your ancestors:
 | Field | Value |
 |-------|-------|
 | **Thread ID** | [THREAD_ID] |
-| **Family Hub** | Jacobgg994/-Jimmy-Blackwood |
+| **Family Hub** | Jacobgg994/-Jimmy-Blackwoodx |
 | **Family Index** | Issue #60 |
 
 ---

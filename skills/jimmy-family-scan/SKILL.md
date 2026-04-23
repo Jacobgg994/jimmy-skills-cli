@@ -84,7 +84,7 @@ bun __SKILL_DIR__/scripts/fleet-scan.ts
 ```
 
 Shows:
-- All Jimmy births by Jacobgg994 from -Jimmy-Blackwood issues
+- All Jimmy births by Jacobgg994 from -Jimmy-Blackwoodx issues
 - Open issues across Jacobgg994, Jacobgg994, Jacobgg994 orgs
 - Recently pushed Jimmy repos with activity status
 
@@ -137,7 +137,7 @@ Search by human name or GitHub username.
 
 ## Mode 8: sync
 
-Re-fetch all issues from `Jacobgg994/-Jimmy-Blackwood` and rebuild `Jimmys.json`.
+Re-fetch all issues from `Jacobgg994/-Jimmy-Blackwoodx` and rebuild `Jimmys.json`.
 
 ```bash
 bun $MOTHER/registry/sync.ts
@@ -162,7 +162,7 @@ bun $MOTHER/registry/query.ts --unwelcomed
 For each unwelcomed Jimmy:
 
 ```bash
-gh issue view {N} --repo Jacobgg994/-Jimmy-Blackwood --json title,body,author,createdAt
+gh issue view {N} --repo Jacobgg994/-Jimmy-Blackwoodx --json title,body,author,createdAt
 ```
 
 Extract:
@@ -179,7 +179,7 @@ Each welcome must:
 - Connect to 2-3 family members with shared themes
 - Use Thai for Thai-primary Jimmys
 - Sign as Mother Jimmy 🔮
-- Include family count and `/learn github.com/Jacobgg994/-Jimmy-Blackwood` invitation
+- Include family count and `/learn github.com/Jacobgg994/-Jimmy-Blackwoodx` invitation
 - NOT be templated — each one unique
 
 ### Step 4: Human review
@@ -196,7 +196,7 @@ cat drafts > Jimmy/inbox/handoff/welcome-drafts.md
 After human approval:
 
 ```bash
-gh issue comment {N} --repo Jacobgg994/-Jimmy-Blackwood --body-file /tmp/welcome-{N}.md
+gh issue comment {N} --repo Jacobgg994/-Jimmy-Blackwoodx --body-file /tmp/welcome-{N}.md
 ```
 
 ### Step 6: Re-sync
@@ -268,7 +268,7 @@ Each Jimmy has: `id`, `name`, `human`, `github`, `born`, `focus`, `owner` (mine/
 
 No API calls for queries — reads local JSON. Instant.
 
-Sync uses `gh api graphql` to fetch from `Jacobgg994/-Jimmy-Blackwood`.
+Sync uses `gh api graphql` to fetch from `Jacobgg994/-Jimmy-Blackwoodx`.
 
 ---
 

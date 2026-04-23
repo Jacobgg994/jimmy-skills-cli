@@ -1,4 +1,4 @@
-﻿# RICH MODE â€” 18-Path Detection
+# RICH MODE — 18-Path Detection
 
 Full detection for edge cases. Use when:
 - Something feels wrong
@@ -42,13 +42,13 @@ LATEST_RETRO=$(find "$ROOT/Jimmy/memory/retrospectives" -name "*.md" -type f 2>/
 | Order | Condition | Return Path | Why |
 |-------|-----------|-------------|-----|
 | 1 | Git in merge/rebase state | GIT_CONFLICT_STATE | Prevents accidental commands |
-| 2 | CONFLICTS > 0 | BLOCKER | Technical blockerâ€”must resolve |
+| 2 | CONFLICTS > 0 | BLOCKER | Technical blocker—must resolve |
 | 3 | FOCUS_STATE == "corrupted" | CORRUPTED_FOCUS | Can't parse, must fix |
 | 4 | FOCUS_STATE == "pending" + has reason | BLOCKER | User explicitly waiting |
-| 5 | FOCUS_STATE == "pending" + no reason | PENDING_NO_REASON | Incomplete stateâ€”clarify |
+| 5 | FOCUS_STATE == "pending" + no reason | PENDING_NO_REASON | Incomplete state—clarify |
 | 6 | FOCUS focusing + age < 4h | DEEP_WORK | Continue uninterrupted |
 | 7 | FOCUS hours > 24 + recent commits | ASYNC_WORK | Work continued off-book |
-| 8 | Both focus files exist | MULTI_FOCUS | Pattern collisionâ€”consolidate |
+| 8 | Both focus files exist | MULTI_FOCUS | Pattern collision—consolidate |
 | 9 | Branch 100+ commits ahead | BRANCH_DIVERGED | Strategy needed before sync |
 | 10 | "completed" in activity + files modified | INCOMPLETE_AFTER_MARKED_DONE | State inconsistency |
 | 11 | MODIFIED > 5 + not focusing | UNCLEAN | Need attention |
@@ -67,7 +67,7 @@ LATEST_RETRO=$(find "$ROOT/Jimmy/memory/retrospectives" -name "*.md" -type f 2>/
 ### Path: BLOCKER (Conflicts or Pending)
 
 ```markdown
-# RECAP â€” BLOCKED
+# RECAP — BLOCKED
 
 [TIME]
 
@@ -85,7 +85,7 @@ What's needed to unblock?
 ### Path: GIT_CONFLICT_STATE
 
 ```markdown
-# RECAP â€” ðŸš© Git In Merge/Rebase
+# RECAP — 🚩 Git In Merge/Rebase
 
 [TIME]
 
@@ -149,7 +149,7 @@ Still current? Or reset?
 ### Path: ASYNC_WORK
 
 ```markdown
-# RECAP â€” Async Work Detected
+# RECAP — Async Work Detected
 
 [TIME]
 
@@ -173,7 +173,7 @@ Update focus or continue?
 ### Path: CORRUPTED_FOCUS
 
 ```markdown
-# RECAP â€” Focus File Broken
+# RECAP — Focus File Broken
 
 [TIME]
 
@@ -195,7 +195,7 @@ SINCE: [HH:MM]
 ### Path: PENDING_NO_REASON
 
 ```markdown
-# RECAP â€” Pending But Unclear
+# RECAP — Pending But Unclear
 
 [TIME]
 
@@ -214,7 +214,7 @@ What were you waiting on?
 ### Path: MULTI_FOCUS
 
 ```markdown
-# RECAP â€” Two Focus Files
+# RECAP — Two Focus Files
 
 [TIME]
 
@@ -232,7 +232,7 @@ Which is current? Delete the other.
 ### Path: BRANCH_DIVERGED
 
 ```markdown
-# RECAP â€” Branch Heavily Diverged
+# RECAP — Branch Heavily Diverged
 
 [TIME]
 
@@ -253,7 +253,7 @@ Choose:
 ### Path: INCOMPLETE_AFTER_MARKED_DONE
 
 ```markdown
-# RECAP â€” Incomplete After Done
+# RECAP — Incomplete After Done
 
 [TIME]
 
@@ -297,9 +297,9 @@ Commit first? Or reset?
 
 ## Complete
 
-**Task**: [from focus] âœ“
+**Task**: [from focus] ✓
 
-**Session did**: [from handoff or last retroâ€”2 bullet points max]
+**Session did**: [from handoff or last retro—2 bullet points max]
 
 **Last commit**: [git log -1 --oneline]
 
@@ -340,9 +340,9 @@ ls "$ROOT/Jimmy/inbox/tracks/"*.md 2>/dev/null | head -3
 
 ## Context
 
-Last work: [from retro AI Diaryâ€”exact, 2 sentences]
+Last work: [from retro AI Diary—exact, 2 sentences]
 
-**Learning**: [from retro Honest Feedbackâ€”one point]
+**Learning**: [from retro Honest Feedback—one point]
 
 ---
 
@@ -362,7 +362,7 @@ What to tackle?
 ### Path: NO_ACTIVITY_LOG
 
 ```markdown
-# RECAP â€” No Activity History
+# RECAP — No Activity History
 
 [TIME]
 
@@ -380,7 +380,7 @@ What to work on?
 ### Path: TRACKS_DORMANT
 
 ```markdown
-# RECAP â€” Tracks Cold
+# RECAP — Tracks Cold
 
 [TIME]
 
@@ -398,7 +398,7 @@ Restart a cold track? Consolidate? Fresh work?
 ### Path: CORRUPTED_RETRO
 
 ```markdown
-# RECAP â€” Retro Corrupted
+# RECAP — Retro Corrupted
 
 [TIME]
 
@@ -420,7 +420,7 @@ Missing expected sections.
 ### Path: CONFUSED
 
 ```markdown
-# RECAP â€” Let Me Check
+# RECAP — Let Me Check
 
 [TIME]
 

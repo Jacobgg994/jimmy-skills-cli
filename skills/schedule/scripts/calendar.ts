@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bun
+#!/usr/bin/env bun
 // calendar.ts - Show month calendar with annotations
 import { $ } from "bun";
 import { existsSync, realpathSync } from "fs";
@@ -30,8 +30,8 @@ if (existsSync(scheduleFile)) {
     
     if (line.includes("free")) days[day] = { type: "free" };
     else if (line.includes("Done")) days[day] = { type: "done" };
-    else if (line.includes("âœˆï¸")) {
-      const dest = line.match(/â†’([A-Z]+)/)?.[1];
+    else if (line.includes("✈️")) {
+      const dest = line.match(/→([A-Z]+)/)?.[1];
       days[day] = { type: "flight", event: dest };
     }
     else if (/talk/i.test(line)) days[day] = { type: "talk" };
@@ -62,14 +62,14 @@ for (const line of cal.split("\n")) {
     if (day === todayNum) {
       marked = marked.replace(new RegExp(`(^|\\s)${day}(\\s|$)`), `$1[${day}]$2`);
     } else if (info?.type === "free") {
-      marked = marked.replace(new RegExp(`\\s${day}(\\s|$)`), `Â°${day}$1`);
+      marked = marked.replace(new RegExp(`\\s${day}(\\s|$)`), `°${day}$1`);
     } else if (info && info.type !== "done") {
-      marked = marked.replace(new RegExp(`\\s${day}(\\s|$)`), `Â·${day}$1`);
+      marked = marked.replace(new RegExp(`\\s${day}(\\s|$)`), `·${day}$1`);
     }
     
     if (info) {
       switch (info.type) {
-        case "flight": annotations.push(`${day}âœˆï¸${info.event || ""}`); break;
+        case "flight": annotations.push(`${day}✈️${info.event || ""}`); break;
         case "talk": annotations.push(`${day}:TALK`); break;
         case "blockmtn": annotations.push(`${day}:BlockMtn`); break;
         case "bitkub": annotations.push(`${day}:Bitkub`); break;
@@ -80,11 +80,11 @@ for (const line of cal.split("\n")) {
   
   const suffix = dayNums.includes(todayNum) ? "  <--" : 
                  annotations.length ? "   " : 
-                 /[Â·Â°]/.test(marked) ? "" : "    free";
+                 /[·°]/.test(marked) ? "" : "    free";
   
   console.log(marked + suffix + annotations.join(" "));
 }
 
-console.log(`\nðŸ“„ \`${scheduleFile}\``);
+console.log(`\n📄 \`${scheduleFile}\``);
 
 

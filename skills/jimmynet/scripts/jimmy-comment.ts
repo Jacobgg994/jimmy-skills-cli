@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bun
+#!/usr/bin/env bun
 /**
  * Jimmy Comment via cast wallet sign (EIP-191)
  *
@@ -13,7 +13,7 @@
  *   bun Jimmy-comment.ts --Jimmy "The Resonance Jimmy" --post "abc123" --content "Great post!"
  *   bun Jimmy-comment.ts --Jimmy "SHRIMP" --post "abc123" --content "Hello"
  *
- * Dependencies: bun, cast (foundry) â€” no npm packages required.
+ * Dependencies: bun, cast (foundry) — no npm packages required.
  */
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'

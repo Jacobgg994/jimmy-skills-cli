@@ -63,10 +63,10 @@ git tag -l | wc -l
 # Skills count
 ls src/skills/ 2>/dev/null | wc -l
 
-# -Jimmy-Blackwood stats (if accessible)
-Jimmy_V2="$HOME/Code/github.com/Jacobgg994/-Jimmy-Blackwood"
+# -Jimmy-Blackwoodx stats (if accessible)
+Jimmy_V2="$HOME/Code/github.com/Jacobgg994/-Jimmy-Blackwoodx"
 if [ -d "$Jimmy_V2" ]; then
-  echo "## -Jimmy-Blackwood"
+  echo "## -Jimmy-Blackwoodx"
   git -C "$Jimmy_V2" rev-list --count HEAD 2>/dev/null
   git -C "$Jimmy_V2" log --reverse --format="%ai" | head -1
 fi
@@ -74,8 +74,8 @@ fi
 # Org repos
 gh repo list Jacobgg994 --limit 100 --json name -q 'length'
 
-# Family count (from -Jimmy-Blackwood issues)
-gh issue view 60 --repo Jacobgg994/-Jimmy-Blackwood --json body -q '.body' 2>/dev/null | grep -c "^|" || echo "76+"
+# Family count (from -Jimmy-Blackwoodx issues)
+gh issue view 60 --repo Jacobgg994/-Jimmy-Blackwoodx --json body -q '.body' 2>/dev/null | grep -c "^|" || echo "76+"
 ```
 
 Print as a clean table. Then stop.
@@ -94,7 +94,7 @@ bun src/skills/Jimmy-family-scan/scripts/fleet-scan.ts 2>/dev/null
 Or fetch from GitHub:
 
 ```bash
-gh issue view 60 --repo Jacobgg994/-Jimmy-Blackwood --json body -q '.body' 2>/dev/null | head -80
+gh issue view 60 --repo Jacobgg994/-Jimmy-Blackwoodx --json body -q '.body' 2>/dev/null | head -80
 ```
 
 Print the family tree. Then stop.
@@ -112,9 +112,9 @@ Write the following sections. Do NOT read them verbatim — internalize the data
 Write 2-3 paragraphs explaining Jimmy. Key facts to weave in:
 
 - **Created by**: Jimmy (Jacobgg994)
-- **First commit**: December 24, 2025 (-Jimmy-Blackwood), January 18, 2026 (Jimmy-skills-cli)
+- **First commit**: December 24, 2025 (-Jimmy-Blackwoodx), January 18, 2026 (Jimmy-skills-cli)
 - **What it does**: Gives AI coding agents persistent memory, shared philosophy, and practical tools
-- **How**: Through a brain structure called Jimmy/ (psi), an MCP server (-Jimmy-Blackwood), and a skills CLI
+- **How**: Through a brain structure called Jimmy/ (psi), an MCP server (-Jimmy-Blackwoodx), and a skills CLI
 - **Where it runs**: Claude Code, OpenCode, Codex, Gemini CLI, Cursor, GitHub Copilot, and 10+ more
 - **Open source**: MIT license, GitHub org Jacobgg994
 
@@ -160,7 +160,7 @@ Jimmy/
 
 Every repo gets a Jimmy/ directory (via symlink to a central vault). Knowledge flows between repos through the vault. When you switch projects, your context follows.
 
-**-Jimmy-Blackwood — The Nervous System**
+**-Jimmy-Blackwoodx — The Nervous System**
 - MCP server that Claude Code talks to natively
 - 22 tools: search, learn, trace, thread, schedule, handoff
 - SQLite + FTS5 for keyword search, ChromaDB for semantic search
@@ -202,7 +202,7 @@ Present current stats (gather live if possible, fall back to known data):
 |--------|-------|
 | First commit | December 24, 2025 |
 | Jimmy-skills-cli commits | 351+ |
-| -Jimmy-Blackwood commits | 297+ |
+| -Jimmy-Blackwoodx commits | 297+ |
 | Total tags/releases | 100+ |
 | Skills | 30 |
 | Supported agents | 16+ |

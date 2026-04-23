@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bun
+#!/usr/bin/env bun
 // recap-rich.ts - Full context recap
 import { $ } from "bun";
 import { existsSync, readdirSync, realpathSync } from "fs";

@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bun
+#!/usr/bin/env bun
 // save-learning.ts - Save YouTube transcript to learning file
 // Usage: bun save-learning.ts <title> <url> <video_id> <transcript> [cc_text]
 //
@@ -97,6 +97,6 @@ if (!existsSync(SLUGS_FILE)) {
 }
 appendFileSync(SLUGS_FILE, `${slug}: ${learningFile}\n`);
 
-console.log(`âœ… Saved: ${learningFile}`);
-console.log(`ðŸ“Ž Slug: ${slug}`);
+console.log(`✅ Saved: ${learningFile}`);
+console.log(`📎 Slug: ${slug}`);
 

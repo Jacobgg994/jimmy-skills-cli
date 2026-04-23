@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bun
+#!/usr/bin/env bun
 // spinoff.ts - Graduate project to its own repo
 import { $ } from "bun";
 import { existsSync, readlinkSync, unlinkSync, symlinkSync } from "fs";
@@ -27,7 +27,7 @@ const sourcePath = existsSync(incubatePath) &&
 const { owner, name } = parseRepo(target);
 const targetPath = ghqPath(owner, name);
 
-console.log(`Spinoff: ${slug} â†’ ${target}`);
+console.log(`Spinoff: ${slug} → ${target}`);
 console.log(`  Source: ${sourcePath}`);
 console.log(`  Target: ${targetPath}`);
 
@@ -55,6 +55,6 @@ await $`git -C ${targetPath} push origin main`.quiet().catch(() =>
 if (existsSync(incubatePath)) unlinkSync(incubatePath);
 symlinkSync(targetPath, incubatePath);
 
-console.log(`\nSpinoff complete: ${slug} â†’ ${target}`);
+console.log(`\nSpinoff complete: ${slug} → ${target}`);
 console.log(`  GitHub: https://github.com/${target}`);
 

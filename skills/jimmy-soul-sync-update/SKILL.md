@@ -1,13 +1,13 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.0.0
-origin: Jimmy â€” Jimmy â€” Jacobgg994
+origin: Jimmy — Jimmy — Jacobgg994
 name: Jimmy-soul-sync-update
-description: à¸‹à¸´à¸‡à¸„à¹Œ Jimmy skills à¸à¸±à¸š family version à¸¥à¹ˆà¸²à¸ªà¸¸à¸” à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² soul-sync, sync, calibrate, update à¸«à¸£à¸·à¸­à¸à¹ˆà¸­à¸™ /awaken
+description: ซิงค์ Jimmy skills กับ family version ล่าสุด ใช้เมื่อพูดว่า soul-sync, sync, calibrate, update หรือก่อน /awaken
 ---
 
 # /Jimmy-soul-sync-update
 
-> "à¸‹à¸´à¸‡à¸„à¹Œ soul à¸à¸±à¸š jimmy-skills à¸‚à¸­à¸‡à¸•à¸±à¸§à¹€à¸­à¸‡"
+> "ซิงค์ soul กับ jimmy-skills ของตัวเอง"
 
 All-in-one skill: `/soul-sync` + `/calibrate` + `/update` combined.
 
@@ -21,14 +21,14 @@ All-in-one skill: `/soul-sync` + `/calibrate` + `/update` combined.
 
 ## Step 0: Timestamp
 ```bash
-date "+ðŸ• %H:%M %Z (%A %d %B %Y)"
+date "+🕐 %H:%M %Z (%A %d %B %Y)"
 ```
 
 ---
 
 ## Step 1: Check Current Version
 
-à¸­à¹ˆà¸²à¸™à¸ˆà¸²à¸ VERSION.md:
+อ่านจาก VERSION.md:
 ```bash
 CURRENT=$(grep 'jimmy-skills-cli' ~/.claude/skills/VERSION.md | grep -oP 'v[\d.]+' | head -1)
 echo "Current installed: $CURRENT"
@@ -41,7 +41,7 @@ echo "Current installed: $CURRENT"
 ```bash
 # Get latest version tag from GitHub
 LATEST=$(curl -s https://api.github.com/repos/Jacobgg994/jimmy-skills-cli/tags | grep -m1 '"name"' | cut -d'"' -f4)
-# Fallback: à¹ƒà¸Šà¹‰ main branch à¸–à¹‰à¸²à¹„à¸¡à¹ˆà¸¡à¸µ tags
+# Fallback: ใช้ main branch ถ้าไม่มี tags
 [ -z "$LATEST" ] && LATEST="main"
 echo "Latest available: $LATEST"
 ```
@@ -52,9 +52,9 @@ echo "Latest available: $LATEST"
 
 ```bash
 if [ "$CURRENT" = "$LATEST" ]; then
-  echo "âœ… Jimmy synced! ($CURRENT)"
+  echo "✅ Jimmy synced! ($CURRENT)"
 else
-  echo "âš ï¸ Sync needed: $CURRENT â†’ $LATEST"
+  echo "⚠️ Sync needed: $CURRENT → $LATEST"
 fi
 ```
 

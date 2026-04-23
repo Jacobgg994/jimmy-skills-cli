@@ -1,7 +1,7 @@
-﻿{
+{
   "name": "jimmy-skills-cli",
   "version": "1.0.0",
-  "description": "Jimmy Skills CLI â€” à¸Šà¸¸à¸” skills à¸ªà¸³à¸«à¸£à¸±à¸š Claude Code à¹‚à¸”à¸¢ Jimmy",
+  "description": "Jimmy Skills CLI — ชุด skills สำหรับ Claude Code โดย Jimmy",
   "bin": { "jimmy-skills-cli": "./src/cli.ts"
   },
   "scripts": {

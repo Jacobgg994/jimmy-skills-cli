@@ -1,8 +1,8 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.0.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: speak
-description: à¹à¸›à¸¥à¸‡à¸‚à¹‰à¸­à¸„à¸§à¸²à¸¡à¹€à¸›à¹‡à¸™à¹€à¸ªà¸µà¸¢à¸‡à¸”à¹‰à¸§à¸¢ edge-tts à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² speak, say, read aloud
+description: แปลงข้อความเป็นเสียงด้วย edge-tts ใช้เมื่อพูดว่า speak, say, read aloud
 ---
 
 # /speak - Text-to-Speech
@@ -13,7 +13,7 @@ Speak text using edge-tts (high-quality neural voices) with fallback to macOS `s
 
 ```bash
 /speak "Hello world"                    # Default English voice
-/speak --thai "à¸ªà¸§à¸±à¸ªà¸”à¸µà¸„à¸£à¸±à¸š"                # Thai voice
+/speak --thai "สวัสดีครับ"                # Thai voice
 /speak --voice "en-GB-RyanNeural" "Hi"  # Specific voice
 /speak --mac "Hello"                    # Force macOS say
 ```
@@ -51,7 +51,7 @@ Located in `src/skills/speak/scripts/`:
 ```bash
 cd src/skills/speak/scripts
 bun speak.ts "Text to speak"
-bun speak.ts --thai "à¸ à¸²à¸©à¸²à¹„à¸—à¸¢"
+bun speak.ts --thai "ภาษาไทย"
 bun speak.ts --list
 ```
 
@@ -74,7 +74,7 @@ bun speak.ts --list
 /speak "The answer is 42"
 
 # Thai greeting
-/speak --thai "à¸ªà¸§à¸±à¸ªà¸”à¸µà¸„à¸£à¸±à¸š à¸¢à¸´à¸™à¸”à¸µà¸•à¹‰à¸­à¸™à¸£à¸±à¸š"
+/speak --thai "สวัสดีครับ ยินดีต้อนรับ"
 
 # British accent
 /speak --voice "en-GB-RyanNeural" "Brilliant!"

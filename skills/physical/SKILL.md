@@ -1,8 +1,8 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.2.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: physical
-description: à¸•à¸£à¸§à¸ˆà¸ªà¸­à¸šà¸•à¸³à¹à¸«à¸™à¹ˆà¸‡à¸—à¸²à¸‡à¸à¸²à¸¢à¸ à¸²à¸žà¸œà¹ˆà¸²à¸™ FindMy à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² physical, where am I, location
+description: ตรวจสอบตำแหน่งทางกายภาพผ่าน FindMy ใช้เมื่อพูดว่า physical, where am I, location
 user-invocable: true
 ---
 
@@ -19,9 +19,9 @@ Check Jimmy's current physical location from OwnTracks data.
 
 ## Data Source
 
-- Repo: `Jacobgg994/{Username}-Location` (GitHub) â€” resolved by username
+- Repo: `Jacobgg994/{Username}-Location` (GitHub) — resolved by username
 - Files: `current.csv` (now), `history.csv` (all records)
-- Updated: Every 3 minutes via OwnTracks â†’ location.athena-Jimmy.site â†’ paji202
+- Updated: Every 3 minutes via OwnTracks → location.athena-Jimmy.site → paji202
 
 ## Instructions
 
@@ -59,19 +59,19 @@ fi
 Parse and display:
 
 ```
-ðŸ“ Physical Status
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+📍 Physical Status
+═══════════════════
 
-ðŸ  Currently At: [place column, or locality if empty]
+🏠 Currently At: [place column, or locality if empty]
 
 | Device | Battery | Precision | Updated |
 |--------|---------|-----------|---------|
 [one row per device, sorted by accuracy]
 
-ðŸ“ [address from iPhone row]
-ðŸ—ºï¸ Map: https://maps.google.com/?q=[lat],[lon]
+📍 [address from iPhone row]
+🗺️ Map: https://maps.google.com/?q=[lat],[lon]
 
-â±ï¸ At this location: [X hours] (from TIME_AT_LOCATION section)
+⏱️ At this location: [X hours] (from TIME_AT_LOCATION section)
 ```
 
 ## Known Places (with coordinates)
@@ -85,9 +85,9 @@ Parse and display:
 If user asks "how far to X":
 
 ```
-ðŸ›« To [destination]:
+🛫 To [destination]:
 - Distance: [calculate km]
-- ðŸ—ºï¸ Directions: https://maps.google.com/maps?saddr=[lat],[lon]&daddr=[dest_lat],[dest_lon]
+- 🗺️ Directions: https://maps.google.com/maps?saddr=[lat],[lon]&daddr=[dest_lat],[dest_lon]
 ```
 
 

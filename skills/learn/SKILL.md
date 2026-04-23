@@ -1,13 +1,13 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.0.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: learn
-description: à¸ªà¸³à¸£à¸§à¸ˆ codebase à¸”à¹‰à¸§à¸¢ Haiku agents à¹à¸šà¸š parallel à¸¡à¸µ mode: --fast, default, --deep à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² learn [repo], explore codebase
+description: สำรวจ codebase ด้วย Haiku agents แบบ parallel มี mode: --fast, default, --deep ใช้เมื่อพูดว่า learn [repo], explore codebase
 ---
 
 # /learn - Deep Dive Learning Pattern
 
-Explore a codebase with 3 parallel Haiku agents â†’ create organized documentation.
+Explore a codebase with 3 parallel Haiku agents → create organized documentation.
 
 ## Usage
 
@@ -37,17 +37,17 @@ Explore a codebase with 3 parallel Haiku agents â†’ create organized docume
 
 ```
 Jimmy/learn/
-â”œâ”€â”€ .origins             # Manifest of learned repos (committed)
-â””â”€â”€ owner/
-    â””â”€â”€ repo/
-        â”œâ”€â”€ origin       # Symlink to ghq source (gitignored)
-        â”œâ”€â”€ repo.md      # Hub file - links to all sessions (committed)
-        â””â”€â”€ YYYY-MM-DD/  # Date folder
-            â”œâ”€â”€ 1349_ARCHITECTURE.md      # Time-prefixed files
-            â”œâ”€â”€ 1349_CODE-SNIPPETS.md
-            â”œâ”€â”€ 1349_QUICK-REFERENCE.md
-            â”œâ”€â”€ 1520_ARCHITECTURE.md      # Second run same day
-            â””â”€â”€ ...
+├── .origins             # Manifest of learned repos (committed)
+└── owner/
+    └── repo/
+        ├── origin       # Symlink to ghq source (gitignored)
+        ├── repo.md      # Hub file - links to all sessions (committed)
+        └── YYYY-MM-DD/  # Date folder
+            ├── 1349_ARCHITECTURE.md      # Time-prefixed files
+            ├── 1349_CODE-SNIPPETS.md
+            ├── 1349_QUICK-REFERENCE.md
+            ├── 1520_ARCHITECTURE.md      # Second run same day
+            └── ...
 ```
 
 **Multiple learnings**: Each run gets time-prefixed files (HHMM_), nested in date folder.
@@ -72,14 +72,14 @@ while read repo; do
   REPO=$(basename "$repo")
   mkdir -p "$ROOT/Jimmy/learn/$OWNER/$REPO"
   ln -sf "$(ghq root)/github.com/$repo" "$ROOT/Jimmy/learn/$OWNER/$REPO/origin"
-  echo "âœ“ Restored: $repo"
+  echo "✓ Restored: $repo"
 done < "$ROOT/Jimmy/learn/.origins"
 ```
 
 ## Step 0: Detect Input Type + Resolve Path
 
 ```bash
-date "+ðŸ• %H:%M %Z (%A %d %B %Y)"
+date "+🕐 %H:%M %Z (%A %d %B %Y)"
 ```
 
 **CRITICAL: Capture ABSOLUTE paths first (before spawning any agents):**
@@ -93,7 +93,7 @@ When spawning Haiku agents, you MUST give them TWO literal paths:
 1. **SOURCE_DIR** (where to READ code) - the `origin/` symlink
 2. **DOCS_DIR** (where to WRITE docs) - the parent directory, NOT inside origin/
 
-âš ï¸ **THE BUG**: If you only give agents `origin/` path, they cd into it and write there â†’ files end up in WRONG repo!
+⚠️ **THE BUG**: If you only give agents `origin/` path, they cd into it and write there → files end up in WRONG repo!
 
 **FIX**: Always give BOTH paths as LITERAL absolute values (no variables!):
 
@@ -120,7 +120,7 @@ ghq get -u "$URL" && \
   ln -sf "$GHQ_ROOT/github.com/$OWNER/$REPO" "$ROOT/Jimmy/learn/$OWNER/$REPO/origin" && \
   echo "$OWNER/$REPO" >> "$ROOT/Jimmy/learn/.origins" && \
   sort -u -o "$ROOT/Jimmy/learn/.origins" "$ROOT/Jimmy/learn/.origins" && \
-  echo "âœ“ Ready: $ROOT/Jimmy/learn/$OWNER/$REPO/origin â†’ source"
+  echo "✓ Ready: $ROOT/Jimmy/learn/$OWNER/$REPO/origin → source"
 ```
 
 **Verify:**
@@ -144,18 +144,18 @@ find Jimmy/learn -name "origin" -type l | xargs -I{} dirname {} | grep -i "$INPU
 ## Step 1: Detect Mode & Calculate Paths
 
 Check arguments for `--fast` or `--deep`:
-- `--fast` â†’ Single overview agent
-- `--deep` â†’ 5 parallel agents
-- (neither) â†’ 3 parallel agents (default)
+- `--fast` → Single overview agent
+- `--deep` → 5 parallel agents
+- (neither) → 3 parallel agents (default)
 
 **Calculate ACTUAL paths (replace variables with real values):**
 ```
 TODAY = YYYY-MM-DD (e.g., 2026-02-04)
 TIME = HHMM (e.g., 1349)
 REPO_DIR = [ROOT]/Jimmy/learn/[OWNER]/[REPO]/
-DOCS_DIR = [ROOT]/Jimmy/learn/[OWNER]/[REPO]/[TODAY]/   â† date folder
-SOURCE_DIR = [ROOT]/Jimmy/learn/[OWNER]/[REPO]/origin/  â† symlink
-FILE_PREFIX = [TIME]_                               â† time prefix for files
+DOCS_DIR = [ROOT]/Jimmy/learn/[OWNER]/[REPO]/[TODAY]/   ← date folder
+SOURCE_DIR = [ROOT]/Jimmy/learn/[OWNER]/[REPO]/origin/  ← symlink
+FILE_PREFIX = [TIME]_                               ← time prefix for files
 
 Example:
 - ROOT = /home/user/ghq/github.com/my-org/my-Jimmy
@@ -166,7 +166,7 @@ Example:
 - Files: 1349_ARCHITECTURE.md, 1349_CODE-SNIPPETS.md, etc.
 ```
 
-**âš ï¸ CRITICAL: Create symlink AND date folder FIRST, then spawn agents!**
+**⚠️ CRITICAL: Create symlink AND date folder FIRST, then spawn agents!**
 
 1. Run the clone + symlink script in Step 0 FIRST
 2. Capture TIME: `date +%H%M` (e.g., 1349)
@@ -174,7 +174,7 @@ Example:
 4. Capture DOCS_DIR, SOURCE_DIR, and TIME as literal values
 5. THEN spawn agents with paths including TIME prefix
 
-**Multiple runs same day?** Each run gets unique TIME prefix â†’ no overwrites.
+**Multiple runs same day?** Each run gets unique TIME prefix → no overwrites.
 
 ---
 
@@ -189,7 +189,7 @@ You are exploring a codebase.
 READ source code from: [SOURCE_DIR]
 WRITE your output to:   [DOCS_DIR]/[TIME]_OVERVIEW.md
 
-âš ï¸ IMPORTANT: Write to DOCS_DIR (the date folder), NOT inside origin/!
+⚠️ IMPORTANT: Write to DOCS_DIR (the date folder), NOT inside origin/!
 
 Analyze:
 - What is this project? (1 sentence)
@@ -209,21 +209,21 @@ Launch 3 agents in parallel. Each prompt must include (use LITERAL paths!):
 READ source code from: [SOURCE_DIR]
 WRITE your output to:   [DOCS_DIR]/[TIME]_[filename].md
 
-âš ï¸ IMPORTANT: Write to DOCS_DIR (the date folder), NOT inside origin/!
+⚠️ IMPORTANT: Write to DOCS_DIR (the date folder), NOT inside origin/!
 ```
 
-### Agent 1: Architecture Explorer â†’ `[TIME]_ARCHITECTURE.md`
+### Agent 1: Architecture Explorer → `[TIME]_ARCHITECTURE.md`
 - Directory structure
 - Entry points
 - Core abstractions
 - Dependencies
 
-### Agent 2: Code Snippets Collector â†’ `[TIME]_CODE-SNIPPETS.md`
+### Agent 2: Code Snippets Collector → `[TIME]_CODE-SNIPPETS.md`
 - Main entry point code
 - Core implementations
 - Interesting patterns
 
-### Agent 3: Quick Reference Builder â†’ `[TIME]_QUICK-REFERENCE.md`
+### Agent 3: Quick Reference Builder → `[TIME]_QUICK-REFERENCE.md`
 - What it does
 - Installation
 - Key features
@@ -240,34 +240,34 @@ Launch 5 agents in parallel. Each prompt must include (use LITERAL paths!):
 READ source code from: [SOURCE_DIR]
 WRITE your output to:   [DOCS_DIR]/[TIME]_[filename].md
 
-âš ï¸ IMPORTANT: Write to DOCS_DIR (the date folder), NOT inside origin/!
+⚠️ IMPORTANT: Write to DOCS_DIR (the date folder), NOT inside origin/!
 ```
 
-### Agent 1: Architecture Explorer â†’ `[TIME]_ARCHITECTURE.md`
+### Agent 1: Architecture Explorer → `[TIME]_ARCHITECTURE.md`
 - Directory structure & organization philosophy
 - Entry points (all of them)
 - Core abstractions & their relationships
 - Dependencies (direct + transitive patterns)
 
-### Agent 2: Code Snippets Collector â†’ `[TIME]_CODE-SNIPPETS.md`
+### Agent 2: Code Snippets Collector → `[TIME]_CODE-SNIPPETS.md`
 - Main entry point code
 - Core implementations with context
 - Interesting patterns & idioms
 - Error handling examples
 
-### Agent 3: Quick Reference Builder â†’ `[TIME]_QUICK-REFERENCE.md`
+### Agent 3: Quick Reference Builder → `[TIME]_QUICK-REFERENCE.md`
 - What it does (comprehensive)
 - Installation (all methods)
 - Key features with examples
 - Configuration options
 
-### Agent 4: Testing & Quality Patterns â†’ `[TIME]_TESTING.md`
+### Agent 4: Testing & Quality Patterns → `[TIME]_TESTING.md`
 - Test structure and conventions
 - Test utilities and helpers
 - Mocking patterns
 - Coverage approach
 
-### Agent 5: API & Integration Surface â†’ `[TIME]_API-SURFACE.md`
+### Agent 5: API & Integration Surface → `[TIME]_API-SURFACE.md`
 - Public API documentation
 - Extension points / hooks
 - Integration patterns
@@ -303,7 +303,7 @@ WRITE your output to:   [DOCS_DIR]/[TIME]_[filename].md
 
 ### --fast mode
 ```markdown
-## ðŸ“š Quick Learn: [REPO]
+## 📚 Quick Learn: [REPO]
 
 **Mode**: fast (1 agent)
 **Location**: Jimmy/learn/$OWNER/$REPO/[TODAY]/[TIME]_*.md
@@ -316,7 +316,7 @@ WRITE your output to:   [DOCS_DIR]/[TIME]_[filename].md
 
 ### Default mode
 ```markdown
-## ðŸ“š Learning Complete: [REPO]
+## 📚 Learning Complete: [REPO]
 
 **Mode**: default (3 agents)
 **Location**: Jimmy/learn/$OWNER/$REPO/[TODAY]/[TIME]_*.md
@@ -333,7 +333,7 @@ WRITE your output to:   [DOCS_DIR]/[TIME]_[filename].md
 
 ### --deep mode
 ```markdown
-## ðŸ“š Deep Learning Complete: [REPO]
+## 📚 Deep Learning Complete: [REPO]
 
 **Mode**: deep (5 agents)
 **Location**: Jimmy/learn/$OWNER/$REPO/[TODAY]/[TIME]_*.md

@@ -1,4 +1,4 @@
-﻿import { $ } from 'bun';
+import { $ } from 'bun';
 import { existsSync, readFileSync } from 'fs';
 import { homedir } from 'os';
 

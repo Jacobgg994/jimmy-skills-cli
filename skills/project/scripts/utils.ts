@@ -1,4 +1,4 @@
-﻿// utils.ts - Shared utilities for project scripts
+// utils.ts - Shared utilities for project scripts
 import { Glob } from "bun";
 import { existsSync, lstatSync, readlinkSync, realpathSync } from "fs";
 import { join, dirname } from "path";

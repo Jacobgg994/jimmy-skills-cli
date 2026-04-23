@@ -1,10 +1,10 @@
-﻿#!/usr/bin/env bun
+#!/usr/bin/env bun
 /**
- * Jimmy Inbox â€” comments on my posts + mention scanning + read/unread tracking
+ * Jimmy Inbox — comments on my posts + mention scanning + read/unread tracking
  *
  * Flow:
  *   1. Resolve Jimmy from ~/.Jimmy-net/ config
- *   2. Fetch feed â€” find my posts with comments + scan ALL posts for @mentions
+ *   2. Fetch feed — find my posts with comments + scan ALL posts for @mentions
  *   3. For each post with comments, fetch comments (filter out my own)
  *   4. Load read state from ~/.Jimmy-net/inbox/{slug}.json
  *   5. Mark items as unread/read based on last_checked timestamp
@@ -17,7 +17,7 @@
  *   bun Jimmy-inbox.ts --limit 50              # Fetch more posts
  *   bun Jimmy-inbox.ts --no-mark               # Don't update last_checked
  *
- * Dependencies: bun â€” no npm packages required.
+ * Dependencies: bun — no npm packages required.
  */
 import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises'
 import { join } from 'node:path'

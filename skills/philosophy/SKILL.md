@@ -248,7 +248,7 @@ When running `/philosophy check`:
 
 - `Jimmy-philosophy/PHILOSOPHY.md`
 - `Jimmy-philosophy-book/2026/ch01-Jimmy-philosophy.md`
-- `-Jimmy-Blackwood/.claude/knowledge/Jimmy-philosophy.md`
+- `-Jimmy-Blackwoodx/.claude/knowledge/Jimmy-philosophy.md`
 - GitHub Issue #29: Phukhao Jimmy Birth
 
 ---

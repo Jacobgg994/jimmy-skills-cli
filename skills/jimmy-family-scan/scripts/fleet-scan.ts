@@ -2,17 +2,17 @@
 // fleet-scan.ts - My Jimmy fleet status via gh CLI
 // Usage: bun fleet-scan.ts
 //
-// Part 1: Jimmy births from -Jimmy-Blackwood issues (single API call)
+// Part 1: Jimmy births from -Jimmy-Blackwoodx issues (single API call)
 // Part 2: Open issues across orgs
 // Part 3: Recently pushed Jimmy repos
 
 import { $ } from "bun";
 
-const Jimmy_REPO = "Jacobgg994/-Jimmy-Blackwood";
+const Jimmy_REPO = "Jacobgg994/-Jimmy-Blackwoodx";
 const ORGS = ["Jacobgg994"];
 const BIRTH_PATTERN = /awaken|born|birth|enter.*chat|hello|สวัสดี|arrived/i;
 
-// --- Part 1: Jimmy Births from -Jimmy-Blackwood ---
+// --- Part 1: Jimmy Births from -Jimmy-Blackwoodx ---
 type Birth = { number: number; title: string; date: string; author: string };
 
 const birthIssuesRaw = await $`gh issue list --repo ${Jimmy_REPO} --state all --limit 300 --json number,title,createdAt,author --jq '.[] | "\(.number)|\(.title)|\(.createdAt | split("T")[0])|\(.author.login)"'`.text();

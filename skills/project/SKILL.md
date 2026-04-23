@@ -189,8 +189,8 @@ User: "I want to work on claude-mem"
 → Symlink created, work until done
 
 # User wants to contribute (keep ghq for follow-up)
-User: "Fix a bug in -Jimmy-Blackwood"
-→ /project incubate https://github.com/Jacobgg994/-Jimmy-Blackwood --contribute
+User: "Fix a bug in -Jimmy-Blackwoodx"
+→ /project incubate https://github.com/Jacobgg994/-Jimmy-Blackwoodx --contribute
 → [edit, commit, push]
 → Auto-offload, ghq kept for PR feedback
 

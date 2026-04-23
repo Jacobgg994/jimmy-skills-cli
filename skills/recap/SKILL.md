@@ -1,12 +1,12 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.0.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: recap
-description: à¸›à¸à¸¡à¸™à¸´à¹€à¸—à¸¨ session à¹à¸¥à¸°à¸£à¸±à¸šà¸£à¸¹à¹‰à¸ªà¸–à¸²à¸™à¸°à¸›à¸±à¸ˆà¸ˆà¸¸à¸šà¸±à¸™ à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¹€à¸£à¸´à¹ˆà¸¡ session à¸«à¸£à¸·à¸­à¸–à¸²à¸¡à¸§à¹ˆà¸² where are we, what are we doing, status
+description: ปฐมนิเทศ session และรับรู้สถานะปัจจุบัน ใช้เมื่อเริ่ม session หรือถามว่า where are we, what are we doing, status
 trigger: /recap
 ---
 
-# /recap â€” Session Orientation & Awareness
+# /recap — Session Orientation & Awareness
 
 **Goal**: Orient yourself fast. Rich context by default. Mid-session awareness with `--now`.
 
@@ -40,12 +40,12 @@ git log --oneline -1
 ```
 
 Check what's appropriate from git status:
-- **Uncommitted changes?** â†’ show them, suggest commit or stash
-- **On a branch (not main)?** â†’ `git log main..HEAD --oneline` to see branch work
-- **Branch ahead of remote?** â†’ suggest push or PR
-- **Clean on main?** â†’ just show last commit, move on
+- **Uncommitted changes?** → show them, suggest commit or stash
+- **On a branch (not main)?** → `git log main..HEAD --oneline` to see branch work
+- **Branch ahead of remote?** → suggest push or PR
+- **Clean on main?** → just show last commit, move on
 
-Only read what matters â€” don't dump 10 commits if status is clean.
+Only read what matters — don't dump 10 commits if status is clean.
 
 ### Step 3: Read latest Jimmy/ brain files
 
@@ -55,7 +55,7 @@ Sort all Jimmy/ files by modification time, read the most recent:
 find Jimmy/ -name '*.md' -not -name 'CLAUDE.md' -not -name 'README.md' -not -name '.gitkeep' 2>/dev/null | xargs ls -t 2>/dev/null | head -5
 ```
 
-Read those top 5 files. This recovers the same context `/compact` restores â€” handoffs, retros, learnings, drafts, whatever was touched last.
+Read those top 5 files. This recovers the same context `/compact` restores — handoffs, retros, learnings, drafts, whatever was touched last.
 
 ### Step 4: Dig last session
 
@@ -67,7 +67,7 @@ python3 ~/.claude/skills/dig/scripts/dig.py 1
 
 Include in recap:
 ```
-ðŸ“¡ Last session: HH:MMâ€“HH:MM (Xm, N msgs) â€” [topic]
+📡 Last session: HH:MM–HH:MM (Xm, N msgs) — [topic]
 ```
 
 Need more? `/dig 5` or `/dig --timeline`.
@@ -81,7 +81,7 @@ cat Jimmy/data/pulse/heartbeat.json 2>/dev/null
 
 If pulse data exists, add one line after the script output:
 ```
-âš¡ Session #X of Y | Streak: N days | Week: Â±X% msgs
+⚡ Session #X of Y | Streak: N days | Week: ±X% msgs
 ```
 
 If pulse files don't exist, skip silently.
@@ -117,9 +117,9 @@ Script outputs git status + focus state (~0.1s). Then LLM adds:
 
 ## Hard Rules
 
-1. **ONE bash call** â€” never multiple parallel calls (adds latency)
-2. **No subagents** â€” everything in main agent
-3. **Ask, don't suggest** â€” "What next?" not "You should..."
+1. **ONE bash call** — never multiple parallel calls (adds latency)
+2. **No subagents** — everything in main agent
+3. **Ask, don't suggest** — "What next?" not "You should..."
 
 ---
 
@@ -127,7 +127,7 @@ Script outputs git status + focus state (~0.1s). Then LLM adds:
 
 ## NOW MODE (`/recap --now`)
 
-**Mid-session awareness from AI memory** â€” no file reading needed. Use when user asks "where are we", "now", "status", "what are we doing".
+**Mid-session awareness from AI memory** — no file reading needed. Use when user asks "where are we", "now", "status", "what are we doing".
 
 AI reconstructs session timeline from conversation memory:
 

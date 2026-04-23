@@ -1,31 +1,31 @@
-﻿---
+---
 name: location-register
-description: à¸¥à¸‡à¸—à¸°à¹€à¸šà¸µà¸¢à¸™ Location Tracking à¸”à¹‰à¸§à¸¢à¸•à¸±à¸§à¹€à¸­à¸‡ â€” à¹ƒà¸Šà¹‰ GitHub PAT à¸‚à¸­à¸‡ user à¹€à¸­à¸‡ à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² location register, register location, à¸•à¸´à¸”à¸•à¸±à¹‰à¸‡ location
+description: ลงทะเบียน Location Tracking ด้วยตัวเอง — ใช้ GitHub PAT ของ user เอง ใช้เมื่อพูดว่า location register, register location, ติดตั้ง location
 user-invocable: true
 ---
 
-# /location-register â€” Self-Register Location Tracking
+# /location-register — Self-Register Location Tracking
 
-à¸¥à¸‡à¸—à¸°à¹€à¸šà¸µà¸¢à¸™ location tracking à¸”à¹‰à¸§à¸¢à¸•à¸±à¸§à¹€à¸­à¸‡ à¹‚à¸”à¸¢à¹ƒà¸Šà¹‰ GitHub repo à¸‚à¸­à¸‡à¸„à¸¸à¸“à¹€à¸­à¸‡
+ลงทะเบียน location tracking ด้วยตัวเอง โดยใช้ GitHub repo ของคุณเอง
 
-## à¸•à¹‰à¸­à¸‡à¸¡à¸µà¸à¹ˆà¸­à¸™
+## ต้องมีก่อน
 
-1. **GitHub repo** à¸ªà¸³à¸«à¸£à¸±à¸šà¹€à¸à¹‡à¸š location data (à¸ªà¸£à¹‰à¸²à¸‡à¹€à¸­à¸‡à¸à¹ˆà¸­à¸™ à¸«à¸£à¸·à¸­ skill à¸ˆà¸°à¸ªà¸£à¹‰à¸²à¸‡à¹ƒà¸«à¹‰)
-2. **GitHub PAT** (Personal Access Token) à¸—à¸µà¹ˆà¸¡à¸µà¸ªà¸´à¸—à¸˜à¸´à¹Œ `repo`
-3. **Register Secret** â€” à¸‚à¸­à¸ˆà¸²à¸ admin
+1. **GitHub repo** สำหรับเก็บ location data (สร้างเองก่อน หรือ skill จะสร้างให้)
+2. **GitHub PAT** (Personal Access Token) ที่มีสิทธิ์ `repo`
+3. **Register Secret** — ขอจาก admin
 
 ## Steps
 
-### Step 1: à¸–à¸²à¸¡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥ (à¸—à¸µà¸¥à¸°à¸‚à¹‰à¸­ à¸£à¸­à¸•à¸­à¸šà¸à¹ˆà¸­à¸™)
+### Step 1: ถามข้อมูล (ทีละข้อ รอตอบก่อน)
 
-1. **Username** â€” "à¸Šà¸·à¹ˆà¸­ username à¸—à¸µà¹ˆà¸•à¹‰à¸­à¸‡à¸à¸²à¸£? (à¹ƒà¸Šà¹‰à¸ªà¸³à¸«à¸£à¸±à¸š login OwnTracks)"
-2. **Password** â€” "à¸•à¸±à¹‰à¸‡ password à¸ªà¸³à¸«à¸£à¸±à¸š OwnTracks login"
-3. **GitHub repo** â€” "à¸Šà¸·à¹ˆà¸­ GitHub repo à¸—à¸µà¹ˆà¸ˆà¸°à¹€à¸à¹‡à¸š location? (format: owner/repo à¹€à¸Šà¹ˆà¸™ yourname/my-location)"
-   - à¸–à¹‰à¸² user à¸¢à¸±à¸‡à¹„à¸¡à¹ˆà¸¡à¸µ repo: "à¸ªà¸£à¹‰à¸²à¸‡ repo à¹ƒà¸™ GitHub à¸à¹ˆà¸­à¸™à¸™à¸°à¸„à¸£à¸±à¸š: https://github.com/new â€” à¸•à¸±à¹‰à¸‡à¸Šà¸·à¹ˆà¸­ à¹€à¸Šà¹ˆà¸™ `my-location` à¹à¸¥à¹‰à¸§à¹à¸ˆà¹‰à¸‡à¸¡à¸²"
-4. **GitHub PAT** â€” "GitHub Personal Access Token à¸—à¸µà¹ˆà¸¡à¸µà¸ªà¸´à¸—à¸˜à¸´à¹Œ `repo` â€” à¸ªà¸£à¹‰à¸²à¸‡à¹„à¸”à¹‰à¸—à¸µà¹ˆ https://github.com/settings/tokens/new?scopes=repo"
-5. **Register Secret** â€” "Register Secret à¸ˆà¸²à¸ admin"
+1. **Username** — "ชื่อ username ที่ต้องการ? (ใช้สำหรับ login OwnTracks)"
+2. **Password** — "ตั้ง password สำหรับ OwnTracks login"
+3. **GitHub repo** — "ชื่อ GitHub repo ที่จะเก็บ location? (format: owner/repo เช่น yourname/my-location)"
+   - ถ้า user ยังไม่มี repo: "สร้าง repo ใน GitHub ก่อนนะครับ: https://github.com/new — ตั้งชื่อ เช่น `my-location` แล้วแจ้งมา"
+4. **GitHub PAT** — "GitHub Personal Access Token ที่มีสิทธิ์ `repo` — สร้างได้ที่ https://github.com/settings/tokens/new?scopes=repo"
+5. **Register Secret** — "Register Secret จาก admin"
 
-### Step 2: à¹€à¸£à¸µà¸¢à¸ /register API
+### Step 2: เรียก /register API
 
 ```bash
 curl -s -X POST https://location.athena-Jimmy.site/register \
@@ -39,9 +39,9 @@ curl -s -X POST https://location.athena-Jimmy.site/register \
   }'
 ```
 
-### Step 3: à¹à¸ªà¸”à¸‡à¸œà¸¥
+### Step 3: แสดงผล
 
-à¸–à¹‰à¸² response à¸¡à¸µ `"status": "ok"` â†’ à¹€à¸‚à¸µà¸¢à¸™ config à¸¥à¸‡à¹€à¸„à¸£à¸·à¹ˆà¸­à¸‡à¸à¹ˆà¸­à¸™:
+ถ้า response มี `"status": "ok"` → เขียน config ลงเครื่องก่อน:
 
 ```bash
 python3 -c "
@@ -55,32 +55,32 @@ print('Config saved')
 "
 ```
 
-à¹à¸¥à¹‰à¸§à¹à¸ªà¸”à¸‡:
+แล้วแสดง:
 
 ```
-âœ… à¸¥à¸‡à¸—à¸°à¹€à¸šà¸µà¸¢à¸™à¸ªà¸³à¹€à¸£à¹‡à¸ˆ!
+✅ ลงทะเบียนสำเร็จ!
 
-ðŸ“± OwnTracks Settings:
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+📱 OwnTracks Settings:
+─────────────────────
 Mode:      HTTP
 URL:       https://location.athena-Jimmy.site/pub
 Username:  {username}
 Password:  {password}
-Device ID: iphone (à¸«à¸£à¸·à¸­à¸­à¸°à¹„à¸£à¸à¹‡à¹„à¸”à¹‰)
+Device ID: iphone (หรืออะไรก็ได้)
 TLS:       ON
 
-ðŸ“¦ GitHub Repo: https://github.com/{github_repo}
+📦 GitHub Repo: https://github.com/{github_repo}
 ```
 
-à¸–à¹‰à¸² error:
-- `409 already exists` â†’ username à¸™à¸µà¹‰à¸¡à¸µà¹à¸¥à¹‰à¸§ à¹€à¸¥à¸·à¸­à¸à¸Šà¸·à¹ˆà¸­à¹ƒà¸«à¸¡à¹ˆ
-- `400 clone failed` â†’ à¹€à¸Šà¹‡à¸„ github_repo URL à¹à¸¥à¸° PAT permissions
-- `403 invalid secret` â†’ register secret à¸œà¸´à¸” à¸‚à¸­à¹ƒà¸«à¸¡à¹ˆà¸ˆà¸²à¸ admin
+ถ้า error:
+- `409 already exists` → username นี้มีแล้ว เลือกชื่อใหม่
+- `400 clone failed` → เช็ค github_repo URL และ PAT permissions
+- `403 invalid secret` → register secret ผิด ขอใหม่จาก admin
 
 ## Notes
 
-- PAT à¸ˆà¸°à¸–à¸¹à¸à¹€à¸à¹‡à¸šà¸šà¸™ server à¸ªà¸³à¸«à¸£à¸±à¸š push location data à¹€à¸‚à¹‰à¸² repo
-- à¹ƒà¸Šà¹‰ Fine-grained PAT à¸ˆà¸³à¸à¸±à¸”à¹à¸„à¹ˆ repo à¸™à¸±à¹‰à¸™à¹„à¸”à¹‰à¸—à¸µà¹ˆ https://github.com/settings/personal-access-tokens/new
-- "idle" à¹ƒà¸™ OwnTracks HTTP mode = à¸›à¸à¸•à¸´ à¹„à¸¡à¹ˆà¸¡à¸µ persistent connection
-- à¸ªà¹ˆà¸‡ location à¸ˆà¸²à¸ Map screen (à¹„à¸¡à¹ˆà¹ƒà¸Šà¹ˆ Publish Settings)
+- PAT จะถูกเก็บบน server สำหรับ push location data เข้า repo
+- ใช้ Fine-grained PAT จำกัดแค่ repo นั้นได้ที่ https://github.com/settings/personal-access-tokens/new
+- "idle" ใน OwnTracks HTTP mode = ปกติ ไม่มี persistent connection
+- ส่ง location จาก Map screen (ไม่ใช่ Publish Settings)
 

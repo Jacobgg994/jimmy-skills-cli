@@ -3,7 +3,7 @@
 # Usage: ./scan.sh [mode] [options]
 # Modes: scan (default), list, repos, report
 
-REPO="Jacobgg994/-Jimmy-Blackwood"
+REPO="Jacobgg994/-Jimmy-Blackwoodx"
 MODE="${1:-scan}"
 
 # Colors

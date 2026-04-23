@@ -1,8 +1,8 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.0.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: feel
-description: à¸šà¸±à¸™à¸—à¸¶à¸à¸­à¸²à¸£à¸¡à¸“à¹Œà¸„à¸§à¸²à¸¡à¸£à¸¹à¹‰à¸ªà¸¶à¸ à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² feel, feeling, mood, tired, sleepy, frustrated, happy, excited
+description: บันทึกอารมณ์ความรู้สึก ใช้เมื่อพูดว่า feel, feeling, mood, tired, sleepy, frustrated, happy, excited
 ---
 
 # /feel - Smart Emotion Log
@@ -11,7 +11,7 @@ Log emotions + optional structured data for pattern tracking.
 
 ## Step 0: Timestamp
 ```bash
-date "+ðŸ• %H:%M %Z (%A %d %B %Y)"
+date "+🕐 %H:%M %Z (%A %d %B %Y)"
 ```
 
 ---
@@ -31,7 +31,7 @@ date "+ðŸ• %H:%M %Z (%A %d %B %Y)"
 /feel sleepy
 /feel happy energy:4
 /feel frustrated trigger:debugging
-/feel panic                 # â†’ suggests /fyi
+/feel panic                 # → suggests /fyi
 ```
 
 ---
@@ -47,7 +47,7 @@ date "+ðŸ• %H:%M %Z (%A %d %B %Y)"
 
 ---
 
-## Mode 1: No Arguments â†’ List
+## Mode 1: No Arguments → List
 
 Read `Jimmy/memory/logs/feelings/` and show summary:
 
@@ -64,7 +64,7 @@ Read `Jimmy/memory/logs/feelings/` and show summary:
 
 ---
 
-## Mode 2: With Arguments â†’ Log
+## Mode 2: With Arguments → Log
 
 ### Step 1: Parse input
 
@@ -77,8 +77,8 @@ Extract from ARGUMENTS:
 
 | Contains | Type | Action |
 |----------|------|--------|
-| panic, fear, à¸à¸¥à¸±à¸§ | Context Fear | Suggest /fyi |
-| happy, proud, à¸”à¸µà¹ƒà¸ˆ | Happy Moment | Suggest /fyi |
+| panic, fear, กลัว | Context Fear | Suggest /fyi |
+| happy, proud, ดีใจ | Happy Moment | Suggest /fyi |
 | Other | Diary | Log directly |
 
 ### Step 3: Create log entry
@@ -99,8 +99,8 @@ Example:
 ```markdown
 ## /feel logged
 
-**Mood**: ðŸ˜´ sleepy
-**Energy**: â–“â–“â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘ 2/5
+**Mood**: 😴 sleepy
+**Energy**: ▓▓░░░░░░░░ 2/5
 **Trigger**: late-night
 **Time**: 22:33
 
@@ -114,11 +114,11 @@ Logged to Jimmy/memory/logs/feels.log
 
 | Level | Bar | Meaning |
 |-------|-----|---------|
-| 1 | â–“â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘ | Exhausted |
-| 2 | â–“â–“â–‘â–‘â–‘â–‘â–‘â–‘â–‘â–‘ | Low |
-| 3 | â–“â–“â–“â–“â–“â–‘â–‘â–‘â–‘â–‘ | Neutral |
-| 4 | â–“â–“â–“â–“â–“â–“â–“â–‘â–‘â–‘ | Good |
-| 5 | â–“â–“â–“â–“â–“â–“â–“â–“â–“â–“ | Energized |
+| 1 | ▓░░░░░░░░░ | Exhausted |
+| 2 | ▓▓░░░░░░░░ | Low |
+| 3 | ▓▓▓▓▓░░░░░ | Neutral |
+| 4 | ▓▓▓▓▓▓▓░░░ | Good |
+| 5 | ▓▓▓▓▓▓▓▓▓▓ | Energized |
 
 ---
 

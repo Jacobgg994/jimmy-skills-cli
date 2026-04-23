@@ -120,7 +120,7 @@ try {
 } catch (e: any) {
   if (e.code === "ConnectionRefused" || e.message?.includes("fetch")) {
     console.error("Cannot connect to Jimmy API at " + API);
-    console.error("Start the server: cd -Jimmy-Blackwood && bun src/server.ts");
+    console.error("Start the server: cd -Jimmy-Blackwoodx && bun src/server.ts");
   } else {
     console.error("Error:", e.message);
   }

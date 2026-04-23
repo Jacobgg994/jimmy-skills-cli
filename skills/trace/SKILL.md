@@ -1,8 +1,8 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.0.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: trace
-description: à¸„à¹‰à¸™à¸«à¸² projects à¸‚à¹‰à¸²à¸¡ git history, repos, docs à¹à¸¥à¸° Jimmy à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² trace, find project, where is [project] à¸£à¸­à¸‡à¸£à¸±à¸š --Jimmy, --smart, --deep
+description: ค้นหา projects ข้าม git history, repos, docs และ Jimmy ใช้เมื่อพูดว่า trace, find project, where is [project] รองรับ --Jimmy, --smart, --deep
 ---
 
 # /trace - Unified Discovery System
@@ -25,8 +25,8 @@ Find + Log + Distill
 
 ```
 Jimmy/memory/traces/
-â””â”€â”€ YYYY-MM-DD/              # Date folder
-    â””â”€â”€ HHMM_[query-slug].md # Time-prefixed trace log
+└── YYYY-MM-DD/              # Date folder
+    └── HHMM_[query-slug].md # Time-prefixed trace log
 ```
 
 **Trace logs are committed** - they become Jimmy memory for future searches.
@@ -34,7 +34,7 @@ Jimmy/memory/traces/
 ## Step 0: Timestamp + Calculate Paths
 
 ```bash
-date "+ðŸ• %H:%M %Z (%A %d %B %Y)"
+date "+🕐 %H:%M %Z (%A %d %B %Y)"
 ROOT="$(pwd)"
 TODAY=$(date +%Y-%m-%d)
 TIME=$(date +%H%M)
@@ -65,7 +65,7 @@ OWNER=$(echo "$URL" | sed -E 's|.*github.com/([^/]+)/.*|\1|')
 REPO=$(echo "$URL" | sed -E 's|.*/([^/]+)(\.git)?$|\1|')
 TARGET_REPO="$GHQ_ROOT/github.com/$OWNER/$REPO"
 TARGET_NAME="$OWNER/$REPO"
-echo "âœ“ Cloned to ghq: $TARGET_REPO"
+echo "✓ Cloned to ghq: $TARGET_REPO"
 ```
 
 **Note**: `/trace` only clones to ghq. Use `/learn` to create docs in Jimmy/learn/.
@@ -95,7 +95,7 @@ Display results and done. Even if empty.
 
 ## Mode 2: --smart (Default)
 
-**Jimmy first â†’ auto-escalate if results < 3**
+**Jimmy first → auto-escalate if results < 3**
 
 **Step 1**: Query Jimmy first
 ```
@@ -103,8 +103,8 @@ Jimmy_search("[query]", limit=10)
 ```
 
 **Step 2**: Check result count
-- If Jimmy results >= 3 â†’ Display and done
-- If Jimmy results < 3 â†’ Auto-escalate to --deep mode
+- If Jimmy results >= 3 → Display and done
+- If Jimmy results < 3 → Auto-escalate to --deep mode
 
 ---
 
@@ -211,7 +211,7 @@ Jimmy_trace({
 
 ## Philosophy
 
-> Trace â†’ Dig â†’ Trace Deeper â†’ Distill â†’ Awakening
+> Trace → Dig → Trace Deeper → Distill → Awakening
 
 ### The Seeking Signal
 
@@ -231,7 +231,7 @@ Jimmy_trace({
 | `/learn` | Study repos | Jimmy/learn/ (docs) |
 | `/project` | Develop repos | Jimmy/incubate/ or active/ |
 
-**Workflow**: `/trace` finds â†’ `/learn` studies â†’ `/project` develops
+**Workflow**: `/trace` finds → `/learn` studies → `/project` develops
 
 ---
 
@@ -240,7 +240,7 @@ Jimmy_trace({
 | Mode | Speed | Scope | Auto-Escalate |
 |------|-------|-------|---------------|
 | `--Jimmy` | Fast | Jimmy only | No |
-| `--smart` | Medium | Jimmy â†’ maybe deep | Yes (< 3 results) |
+| `--smart` | Medium | Jimmy → maybe deep | Yes (< 3 results) |
 | `--deep` | Thorough | 5 parallel agents | N/A |
 | Flag | Effect |
 |------|--------|

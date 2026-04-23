@@ -1,8 +1,8 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.2.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: wrap
-description: à¸ªà¸£à¹‰à¸²à¸‡ session retrospective à¸žà¸£à¹‰à¸­à¸¡ AI diary à¹à¸¥à¸° lessons learned à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² wrap, retrospective, wrap up session
+description: สร้าง session retrospective พร้อม AI diary และ lessons learned ใช้เมื่อพูดว่า wrap, retrospective, wrap up session
 ---
 
 # /wrap
@@ -38,7 +38,7 @@ cat Jimmy/data/pulse/heartbeat.json 2>/dev/null
 ```
 
 If files don't exist, skip silently. Never fail because pulse data is missing.
-Pulse data may not exist yet â€” the `2>/dev/null` handles this.
+Pulse data may not exist yet — the `2>/dev/null` handles this.
 
 If found, extract:
 - From `project.json`: `totalSessions`, `avgMessagesPerSession`, `sizes` (to categorize current session), `branches` (activity on current branch)
@@ -53,10 +53,10 @@ mkdir -p "Jimmy/memory/retrospectives/$(date +%Y-%m/%d)"
 ```
 
 Write immediately, no prompts. If pulse data was found, weave it into the narrative (don't add a separate dashboard). Include:
-- Session Summary â€” if pulse data exists, add one line: "Session #X of Y in this project (Z-day streak)"
+- Session Summary — if pulse data exists, add one line: "Session #X of Y in this project (Z-day streak)"
 - Timeline
 - Files Modified
-- AI Diary (150+ words, first-person) â€” if pulse data exists, reference momentum naturally: "in a week with +X% messaging velocity" or "on day N of an unbroken streak"
+- AI Diary (150+ words, first-person) — if pulse data exists, reference momentum naturally: "in a week with +X% messaging velocity" or "on day N of an unbroken streak"
 - Honest Feedback (100+ words, 3 friction points)
 - Lessons Learned
 - Next Steps
@@ -75,7 +75,7 @@ Jimmy_learn({ pattern: [lesson content], concepts: [tags], source: "wrap: REPO" 
 
 Retro files are written to vault (wherever `Jimmy` symlink resolves).
 
-**Do NOT `git add Jimmy/`** â€” it's a symlink to the vault. Vault files are shared state, not committed to repos.
+**Do NOT `git add Jimmy/`** — it's a symlink to the vault. Vault files are shared state, not committed to repos.
 
 ---
 
@@ -109,7 +109,7 @@ Same flow as default but use full template:
 ## Metrics (commits, files, lines)
 ### Pulse Context (if pulse data exists)
 Project: X sessions | Avg: Y msgs/session | This session: Z msgs (category)
-Streak: N days | Week trend: Â±X% msgs | Branch: main (N sessions)
+Streak: N days | Week trend: ±X% msgs | Branch: main (N sessions)
 ```
 
 Then steps 3-5 same as default.
@@ -141,7 +141,7 @@ Also run pulse context (step 1.5 from default mode) and weave into narrative.
 
 Write lesson learned, Jimmy sync.
 
-**Do NOT `git add Jimmy/`** â€” vault files are shared state, not committed to repos.
+**Do NOT `git add Jimmy/`** — vault files are shared state, not committed to repos.
 
 ---
 

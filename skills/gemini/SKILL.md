@@ -1,8 +1,8 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.0.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: gemini
-description: à¸„à¸§à¸šà¸„à¸¸à¸¡ Gemini à¸œà¹ˆà¸²à¸™ MQTT WebSocket à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² gemini à¸«à¸£à¸·à¸­à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸ªà¹ˆà¸‡à¸‚à¹‰à¸­à¸„à¸§à¸²à¸¡à¸«à¸² Gemini
+description: ควบคุม Gemini ผ่าน MQTT WebSocket ใช้เมื่อพูดว่า gemini หรือต้องการส่งข้อความหา Gemini
 ---
 
 # /gemini - Smooth MQTT Control for Gemini
@@ -23,7 +23,7 @@ Direct control of Gemini browser tab via MQTT WebSocket. **Tab precision works!*
 ## The Smooth Flow
 
 ```
-create_tab â†’ tabId â†’ inject_badge â†’ chat â†’ GEMINI RESPONDS!
+create_tab → tabId → inject_badge → chat → GEMINI RESPONDS!
 ```
 
 ## Requirements
@@ -62,9 +62,9 @@ node --experimental-strip-types youtube-transcribe.ts "https://youtube.com/..."
 
 | Topic | Direction | Purpose |
 |-------|-----------|---------|
-| `claude/browser/command` | â†’ Extension | Send commands |
-| `claude/browser/response` | â† Extension | Command results |
-| `claude/browser/status` | â† Extension | Online/offline |
+| `claude/browser/command` | → Extension | Send commands |
+| `claude/browser/response` | ← Extension | Command results |
+| `claude/browser/status` | ← Extension | Online/offline |
 
 **IMPORTANT**: Topics are `claude/browser/*` NOT `claude-browser-proxy/*`!
 
@@ -74,16 +74,16 @@ node --experimental-strip-types youtube-transcribe.ts "https://youtube.com/..."
 
 ```json
 {"action": "create_tab"}
-// â†’ {tabId: 2127157543, success: true}
+// → {tabId: 2127157543, success: true}
 
 {"action": "list_tabs"}
-// â†’ {tabs: [...], count: 3}
+// → {tabs: [...], count: 3}
 
 {"action": "focus_tab", "tabId": 2127157543}
-// â†’ {success: true}
+// → {success: true}
 
 {"action": "inject_badge", "tabId": 2127157543, "text": "HELLO"}
-// â†’ {success: true, injected: true}
+// → {success: true, injected: true}
 ```
 
 ### Chat (with Tab Precision!)
@@ -143,7 +143,7 @@ await send('chat', {                            // 4. Send chat
   tabId: tab.tabId,
   text: 'Hello from Claude!'
 });
-// â†’ Gemini responds!
+// → Gemini responds!
 ```
 
 ## Troubleshooting

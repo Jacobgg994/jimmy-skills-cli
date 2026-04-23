@@ -1,9 +1,9 @@
-﻿#!/usr/bin/env bun
+#!/usr/bin/env bun
 /**
  * Check if an Jimmy has a saved bot wallet/key.
  * Usage: bun get-Jimmy.ts <slug>
  * Output: JSON { exists, bot_wallet, bot_key } or { exists: false }
- * Standalone â€” no external dependencies.
+ * Standalone — no external dependencies.
  */
 import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'

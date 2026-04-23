@@ -1,8 +1,8 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.0.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: deep-research
-description: à¸§à¸´à¸ˆà¸±à¸¢à¹€à¸Šà¸´à¸‡à¸¥à¸¶à¸à¸œà¹ˆà¸²à¸™ Gemini à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² deep research, research this topic à¸«à¸£à¸·à¸­à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸à¸²à¸£à¸§à¸´à¹€à¸„à¸£à¸²à¸°à¸«à¹Œà¹à¸šà¸šà¸„à¸£à¸­à¸šà¸„à¸¥à¸¸à¸¡
+description: วิจัยเชิงลึกผ่าน Gemini ใช้เมื่อพูดว่า deep research, research this topic หรือต้องการการวิเคราะห์แบบครอบคลุม
 alias: /gemini research
 ---
 
@@ -29,7 +29,7 @@ Opens new tab, selects Deep Research mode, sends prompt, and starts research.
 ## Workflow
 
 1. Create new Gemini tab
-2. Select Deep Research mode (Tools â†’ Deep Research)
+2. Select Deep Research mode (Tools → Deep Research)
 3. Send research prompt
 4. Click "Start research" button
 5. Wait for results
@@ -53,7 +53,7 @@ bun ~/.claude/skills/deep-research/scripts/deep-research.ts "<topic>"
 | Step | Action | Command |
 |------|--------|---------|
 | 1 | New tab | `create_tab` with gemini.google.com |
-| 2 | Select mode | `select_mode` â†’ Deep Research |
+| 2 | Select mode | `select_mode` → Deep Research |
 | 3 | Send prompt | `chat` with research topic |
-| 4 | Start | `clickText` â†’ "Start research" |
+| 4 | Start | `clickText` → "Start research" |
 

@@ -1,8 +1,8 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.0.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: standup
-description: à¹€à¸Šà¹‡à¸„ daily standup â€” tasks à¸—à¸µà¹ˆà¸„à¹‰à¸²à¸‡à¸­à¸¢à¸¹à¹ˆ, à¸™à¸±à¸”à¸«à¸¡à¸²à¸¢, à¸„à¸§à¸²à¸¡à¸„à¸·à¸šà¸«à¸™à¹‰à¸²à¸¥à¹ˆà¸²à¸ªà¸¸à¸” à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² standup, morning check, what's pending
+description: เช็ค daily standup — tasks ที่ค้างอยู่, นัดหมาย, ความคืบหน้าล่าสุด ใช้เมื่อพูดว่า standup, morning check, what's pending
 ---
 
 # /standup - Daily Standup
@@ -11,7 +11,7 @@ Quick check: pending tasks, appointments, recent progress.
 
 ## Step 0: Timestamp
 ```bash
-date "+ðŸ• %H:%M %Z (%A %d %B %Y)"
+date "+🕐 %H:%M %Z (%A %d %B %Y)"
 ```
 
 ---
@@ -32,9 +32,9 @@ Gather info from multiple sources:
 ```bash
 gh api repos/Jacobgg994/nat-location-data/contents/current.csv --jq '.content' | base64 -d | grep iPhone | head -1 | cut -d',' -f9
 ```
-Show: "ðŸ“ Currently at: [place]"
+Show: "📍 Currently at: [place]"
 
-### 1. Open Issues (à¸‡à¸²à¸™à¸„à¹‰à¸²à¸‡)
+### 1. Open Issues (งานค้าง)
 ```bash
 gh issue list --state open --limit 10 --json number,title,updatedAt --jq '.[] | "#\(.number) \(.title)"'
 ```
@@ -75,16 +75,16 @@ Scan recent LINE messages for potential appointments:
 3. For each active group, call `line_digest` (group: name, date: "today")
    - Also check yesterday: `line_digest` (group: name, date: yesterday's YYYY-MM-DD)
 4. Extract messages containing date/time patterns:
-   - Thai: `à¸§à¸±à¸™à¸—à¸µà¹ˆ`, `à¸žà¸£à¸¸à¹ˆà¸‡à¸™à¸µà¹‰`, `à¸¡à¸°à¸£à¸·à¸™`, `à¸™à¸±à¸”`, `à¸›à¸£à¸°à¸Šà¸¸à¸¡`, `à¹€à¸ˆà¸­à¸à¸±à¸™`
+   - Thai: `วันที่`, `พรุ่งนี้`, `มะรืน`, `นัด`, `ประชุม`, `เจอกัน`
    - English: dates, "meeting", "appointment", "schedule"
-   - Times: `HH:MM`, `X à¹‚à¸¡à¸‡`, `à¸šà¹ˆà¸²à¸¢`, `à¹€à¸Šà¹‰à¸²`
+   - Times: `HH:MM`, `X โมง`, `บ่าย`, `เช้า`
 5. Cross-reference with existing schedule (step 4) to skip duplicates
 6. Present found appointments:
    ```
    ### LINE Appointments Found
-   - [date] [event] (from: [group]) â€” Add? Y/N
+   - [date] [event] (from: [group]) — Add? Y/N
    ```
-7. On user approval â†’ call `Jimmy_schedule_add` for each confirmed appointment
+7. On user approval → call `Jimmy_schedule_add` for each confirmed appointment
 
 ---
 
@@ -106,13 +106,13 @@ Scan recent LINE messages for potential appointments:
 | #N | title | date |
 
 ### Appointments Today
-- [from schedule.md or "à¹„à¸¡à¹ˆà¸¡à¸µà¸™à¸±à¸”"]
+- [from schedule.md or "ไม่มีนัด"]
 
 ### Next Action
 - [suggest based on priorities]
 
 ---
-ðŸ’¡ `/schedule` to see full calendar
+💡 `/schedule` to see full calendar
 ```
 
 ---

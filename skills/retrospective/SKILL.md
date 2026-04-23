@@ -1,15 +1,15 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.0.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: retrospective
-description: à¸ªà¸£à¹‰à¸²à¸‡ session retrospective à¸žà¸£à¹‰à¸­à¸¡ AI diary à¹à¸¥à¸° lessons learned à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² retrospective, retro, session summary
+description: สร้าง session retrospective พร้อม AI diary และ lessons learned ใช้เมื่อพูดว่า retrospective, retro, session summary
 ---
 
 # /retrospective
 
 > Sugar alias for `/rrr`
 
-**Just run `/rrr`** â€” this is the full word version for those who prefer it.
+**Just run `/rrr`** — this is the full word version for those who prefer it.
 
 ```
 /rrr              # Short (recommended)

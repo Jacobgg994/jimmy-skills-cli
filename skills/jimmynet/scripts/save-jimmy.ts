@@ -1,10 +1,10 @@
-﻿#!/usr/bin/env bun
+#!/usr/bin/env bun
 /**
  * Save Jimmy config to ~/.Jimmy-net/Jimmys/{slug}.json
  * Usage: bun save-Jimmy.ts '<json>'
  * Input JSON: { name, slug, birth_issue, bot_wallet, bot_key?, owner_wallet?, verification_issue? }
  * Merges with existing data (preserves bot_key if not provided).
- * Standalone â€” no external dependencies.
+ * Standalone — no external dependencies.
  */
 import { readdir, readFile, writeFile, mkdir, chmod } from 'node:fs/promises'
 import { join } from 'node:path'

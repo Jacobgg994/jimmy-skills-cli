@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bun
+#!/usr/bin/env bun
 
 import { existsSync, mkdirSync, cpSync, readFileSync, writeFileSync, readdirSync, rmSync, statSync } from 'fs'
 import { join, dirname } from 'path'
@@ -9,7 +9,7 @@ const PACKAGE_DIR = join(dirname(fileURLToPath(import.meta.url)), '..')
 const SKILLS_SRC = join(PACKAGE_DIR, 'skills')
 const GLOBAL_TARGET = join(process.env.HOME!, '.claude', 'skills')
 
-// â”€â”€ Parse args â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Parse args ──────────────────────────────────────────────
 const args = process.argv.slice(2)
 const command = args[0] ?? 'help'
 const isGlobal = args.includes('-g') || args.includes('--global')
@@ -17,7 +17,7 @@ const isYes    = args.includes('-y') || args.includes('--yes')
 
 const targetDir = isGlobal ? GLOBAL_TARGET : join(process.cwd(), '.claude', 'skills')
 
-// â”€â”€ Helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Helpers ──────────────────────────────────────────────────
 function getSkillNames(): string[] {
   return readdirSync(SKILLS_SRC).filter(name => {
     return statSync(join(SKILLS_SRC, name)).isDirectory()
@@ -64,14 +64,14 @@ function confirm(msg: string): boolean {
   return buf.slice(0, n).toString().trim().toLowerCase() === 'y'
 }
 
-// â”€â”€ Commands â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Commands ──────────────────────────────────────────────────
 function cmdInstall() {
   const skills = getSkillNames()
-  console.log(`\nðŸŽ­ jimmy-skills-cli v${VERSION}`)
-  console.log(`ðŸ“¦ ${skills.length} skills à¸žà¸£à¹‰à¸­à¸¡ install â†’ ${targetDir}\n`)
+  console.log(`\n🎭 jimmy-skills-cli v${VERSION}`)
+  console.log(`📦 ${skills.length} skills พร้อม install → ${targetDir}\n`)
 
-  if (!confirm(`à¸•à¸´à¸”à¸•à¸±à¹‰à¸‡ ${skills.length} skills?`)) {
-    console.log('à¸¢à¸à¹€à¸¥à¸´à¸')
+  if (!confirm(`ติดตั้ง ${skills.length} skills?`)) {
+    console.log('ยกเลิก')
     process.exit(0)
   }
 
@@ -87,22 +87,22 @@ function cmdInstall() {
     cpSync(src, dest, { recursive: true })
     updateInstaller(dest)
     installed++
-    process.stdout.write(`  âœ… ${name}\n`)
+    process.stdout.write(`  ✅ ${name}\n`)
   }
 
   writeVersionFile(skills)
 
-  console.log(`\nâœ¨ à¸•à¸´à¸”à¸•à¸±à¹‰à¸‡à¹€à¸ªà¸£à¹‡à¸ˆ: ${installed} skills â†’ ${targetDir}`)
-  console.log('ðŸ”„ Restart Claude Code à¹€à¸žà¸·à¹ˆà¸­à¹‚à¸«à¸¥à¸” skills à¹ƒà¸«à¸¡à¹ˆ\n')
+  console.log(`\n✨ ติดตั้งเสร็จ: ${installed} skills → ${targetDir}`)
+  console.log('🔄 Restart Claude Code เพื่อโหลด skills ใหม่\n')
 }
 
 function cmdUninstall() {
   const skills = getSkillNames()
-  console.log(`\nðŸŽ­ jimmy-skills-cli v${VERSION}`)
-  console.log(`ðŸ—‘ï¸  à¸ˆà¸°à¸¥à¸š ${skills.length} skills à¸­à¸­à¸à¸ˆà¸²à¸ ${targetDir}\n`)
+  console.log(`\n🎭 jimmy-skills-cli v${VERSION}`)
+  console.log(`🗑️  จะลบ ${skills.length} skills ออกจาก ${targetDir}\n`)
 
-  if (!confirm('à¸¢à¸·à¸™à¸¢à¸±à¸™à¸à¸²à¸£à¸–à¸­à¸™à¸•à¸´à¸”à¸•à¸±à¹‰à¸‡?')) {
-    console.log('à¸¢à¸à¹€à¸¥à¸´à¸')
+  if (!confirm('ยืนยันการถอนติดตั้ง?')) {
+    console.log('ยกเลิก')
     process.exit(0)
   }
 
@@ -111,7 +111,7 @@ function cmdUninstall() {
     const dest = join(targetDir, name)
     if (existsSync(dest)) {
       rmSync(dest, { recursive: true })
-      process.stdout.write(`  ðŸ—‘ï¸  ${name}\n`)
+      process.stdout.write(`  🗑️  ${name}\n`)
       removed++
     }
   }
@@ -119,12 +119,12 @@ function cmdUninstall() {
   const versionFile = join(targetDir, 'VERSION.md')
   if (existsSync(versionFile)) rmSync(versionFile)
 
-  console.log(`\nà¸–à¸­à¸™à¸•à¸´à¸”à¸•à¸±à¹‰à¸‡à¹€à¸ªà¸£à¹‡à¸ˆ: ${removed} skills\n`)
+  console.log(`\nถอนติดตั้งเสร็จ: ${removed} skills\n`)
 }
 
 function cmdList() {
   const skills = getSkillNames()
-  console.log(`\nðŸŽ­ jimmy-skills-cli v${VERSION} â€” ${skills.length} skills\n`)
+  console.log(`\n🎭 jimmy-skills-cli v${VERSION} — ${skills.length} skills\n`)
   for (const name of skills) {
     const mdPath = join(SKILLS_SRC, name, 'SKILL.md')
     let desc = ''
@@ -132,7 +132,7 @@ function cmdList() {
       const match = readFileSync(mdPath, 'utf-8').match(/^description:\s*(.+)$/m)
       if (match) desc = match[1]
     }
-    console.log(`  ðŸ“œ /${name}`)
+    console.log(`  📜 /${name}`)
     if (desc) console.log(`     ${desc}`)
   }
   console.log()
@@ -140,24 +140,24 @@ function cmdList() {
 
 function cmdHelp() {
   console.log(`
-ðŸŽ­ jimmy-skills-cli v${VERSION}
-à¸Šà¸¸à¸” Claude Code skills à¹‚à¸”à¸¢ Jimmy
+🎭 jimmy-skills-cli v${VERSION}
+ชุด Claude Code skills โดย Jimmy
 
-Usage:  jimmy-skills-cli install [-g] [-y]    à¸•à¸´à¸”à¸•à¸±à¹‰à¸‡ skills à¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”
-  jimmy-skills uninstall [-g] [-y]  à¸–à¸­à¸™à¸•à¸´à¸”à¸•à¸±à¹‰à¸‡ skills à¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”
-  jimmy-skills list                 à¹à¸ªà¸”à¸‡à¸£à¸²à¸¢à¸à¸²à¸£ skills à¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”
-  jimmy-skills version              à¹à¸ªà¸”à¸‡ version
+Usage:  jimmy-skills-cli install [-g] [-y]    ติดตั้ง skills ทั้งหมด
+  jimmy-skills uninstall [-g] [-y]  ถอนติดตั้ง skills ทั้งหมด
+  jimmy-skills list                 แสดงรายการ skills ทั้งหมด
+  jimmy-skills version              แสดง version
 
 Flags:
-  -g, --global   à¸•à¸´à¸”à¸•à¸±à¹‰à¸‡à¹ƒà¸™ ~/.claude/skills/ (global)
-  -y, --yes      à¸‚à¹‰à¸²à¸¡à¸à¸²à¸£à¸¢à¸·à¸™à¸¢à¸±à¸™
+  -g, --global   ติดตั้งใน ~/.claude/skills/ (global)
+  -y, --yes      ข้ามการยืนยัน
 
-à¸•à¸´à¸”à¸•à¸±à¹‰à¸‡à¸„à¸£à¸±à¹‰à¸‡à¹à¸£à¸:
+ติดตั้งครั้งแรก:
   bunx --bun jimmy-skills-cli@github:Jacobgg994/jimmy-skills-cli install -g -y
 `)
 }
 
-// â”€â”€ Router â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Router ────────────────────────────────────────────────────
 switch (command) {
   case 'install':   cmdInstall();   break
   case 'uninstall': cmdUninstall(); break

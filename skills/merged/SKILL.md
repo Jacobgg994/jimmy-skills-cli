@@ -1,8 +1,8 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.0.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: merged
-description: à¸—à¸³à¸„à¸§à¸²à¸¡à¸ªà¸°à¸­à¸²à¸”à¸«à¸¥à¸±à¸‡ merge â€” switch to main, pull latest, à¸¥à¸š branch à¸—à¸µà¹ˆ merge à¹à¸¥à¹‰à¸§ à¹ƒà¸Šà¹‰à¸«à¸¥à¸±à¸‡ PR à¸–à¸¹à¸ merge
+description: ทำความสะอาดหลัง merge — switch to main, pull latest, ลบ branch ที่ merge แล้ว ใช้หลัง PR ถูก merge
 ---
 
 # /merged - Post-Merge Cleanup
@@ -26,7 +26,7 @@ BRANCH=$(git branch --show-current)
 echo "Current branch: $BRANCH"
 ```
 
-If already on `main` or `master`, stop â€” nothing to clean up.
+If already on `main` or `master`, stop — nothing to clean up.
 
 ### Step 2: Switch to main and pull
 
@@ -48,7 +48,7 @@ git push origin --delete $BRANCH 2>/dev/null || echo "Remote branch already dele
 ### Step 4: Confirm cleanup
 
 ```bash
-echo "âœ… Cleanup complete"
+echo "✅ Cleanup complete"
 git branch -a | head -10
 git log --oneline -3
 ```
@@ -58,7 +58,7 @@ git log --oneline -3
 ## Output
 
 ```markdown
-## âœ… Post-Merge Cleanup
+## ✅ Post-Merge Cleanup
 
 - Switched to: `main`
 - Pulled latest: [commit hash]
@@ -79,17 +79,17 @@ After your PR is merged on GitHub:
 
 ```
 PR merged on GitHub
-        â†“
+        ↓
 /merged
-        â†“
-âœ… Back on main, branch cleaned up
+        ↓
+✅ Back on main, branch cleaned up
 ```
 
 ---
 
 ## Safety
 
-- Uses `git branch -d` (safe delete) â€” won't delete unmerged branches
+- Uses `git branch -d` (safe delete) — won't delete unmerged branches
 - Checks if remote branch exists before deleting
 - Won't run if already on main
 

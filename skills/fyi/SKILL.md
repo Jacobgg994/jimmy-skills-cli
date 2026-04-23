@@ -1,8 +1,8 @@
-﻿---
+---
 installer: jimmy-skills-cli v1.0.0
-origin: Jimmy's brain, digitized â€” how one human works with AI, captured as code
+origin: Jimmy's brain, digitized — how one human works with AI, captured as code
 name: fyi
-description: à¸šà¸±à¸™à¸—à¸¶à¸à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸ªà¸³à¸«à¸£à¸±à¸šà¸­à¹‰à¸²à¸‡à¸­à¸´à¸‡à¹ƒà¸™à¸­à¸™à¸²à¸„à¸• à¹ƒà¸Šà¹‰à¹€à¸¡à¸·à¹ˆà¸­à¸žà¸¹à¸”à¸§à¹ˆà¸² fyi, remember this, note that
+description: บันทึกข้อมูลสำหรับอ้างอิงในอนาคต ใช้เมื่อพูดว่า fyi, remember this, note that
 ---
 
 # /fyi - Information Log
@@ -11,10 +11,10 @@ Log info for future reference, or review/distill existing info.
 
 ## Usage
 
-- /fyi â†’ List and review existing info
-- /fyi [info] â†’ Log new information (neutral)
-- /fyi --interesting [info] â†’ Log something worth noting
-- /fyi --important [info] â†’ Log something critical (auto-saves to Jimmy)
+- /fyi → List and review existing info
+- /fyi [info] → Log new information (neutral)
+- /fyi --interesting [info] → Log something worth noting
+- /fyi --important [info] → Log something critical (auto-saves to Jimmy)
 
 ## Significance Levels
 
